@@ -1,0 +1,29 @@
+{
+  "name": "the-fil-am-food-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js",
+    "server": "cd server && nodemon server.js",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "npm start --prefix client",
+    "watch": "npm-watch"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephtf/the-fil-am-food-blog.git"
+  },
+  "author": "Steph Fajardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephtf/the-fil-am-food-blog/issues"
+  },
+  "homepage": "https://github.com/stephtf/the-fil-am-food-blog#readme"
+}
