@@ -8,7 +8,6 @@ const commentSchema = new Schema({
     timestamp: {
         type: Date,
         default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
       },
     message: {
         type: String,
@@ -25,7 +24,6 @@ const commentSchema = new Schema({
         timestamp: {
           type: Date, 
           default: Date.now, 
-          get: (timestamp) => dateFormat(timestamp),
         },
         replyMessage: {
           type: String,
