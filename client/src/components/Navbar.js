@@ -1,6 +1,6 @@
 const Navbar = () => {
     return (
-       <h1>The Fil-Am Food Blog</h1> 
+       <h1>The Fil-Am Foodie Blog</h1> 
     )
 }
 

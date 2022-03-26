@@ -3,33 +3,31 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql `
     type Comments {
         _id: ID 
-        name: String! 
+        name: String
         timestamp: String
-        message: String!
-        replies: [Replies]
+        message: String
+        replies: [repliesSchema]
     }
 
-    type Replies {
+    type repliesSchema {
         _id: ID 
-        name: String! 
+        name: String
         timestamp: String 
         replyMessage: String 
     }
 
     type Query {
         comments: [Comments]
-        comment(_id: ID!): Comments
+        comment(_id: ID): [Comments]
     }
 
     type Mutation {
         createComment(name: String!, message: String!): Comments
-        createReply(_id: ID!, name: String!, replyMessage: String!): Comments
-        deleteComment(_id: ID!, name: String!, message: String!): Comments
-        deleteReply(_id: ID!, replyId: ID!): Comments
+        createReply(_id: ID!, name: String!, replyMessage: String!): repliesSchema
+        deleteComment(_id: ID!): Comments
+        deleteReply(_id: ID!, replyId: ID!): repliesSchema
     }
 `;
 
 module.exports = typeDefs; 
 
-    // deleteComment(name: String!, message: String!): Comments)
-        // deleteReply(name: String!, message: String!): Replies

@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const repliesSchema = require('./Replies');
+const dateFormat = require('../utils/dateFormat');
 
 const commentSchema = new Schema({
     name: {
@@ -8,6 +10,7 @@ const commentSchema = new Schema({
     timestamp: {
         type: Date,
         default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
       },
     message: {
         type: String,
@@ -15,25 +18,15 @@ const commentSchema = new Schema({
         minlength: 1,
         maxlength: 280,
       },
-    replies: [
-      {
-        name: {
-          type: String,
-          required: true,
-        },
-        timestamp: {
-          type: Date, 
-          default: Date.now, 
-        },
-        replyMessage: {
-          type: String,
-          required: true, 
-          minlength: 1, 
-          maxlength: 280,
-        },
-      }
-    ]
+    replies: [repliesSchema]
 });
+
+commentSchema 
+  .virtual('commentCount')
+  .get(function () {
+    const numberOfReplies = this.replies.length; 
+    return numberOfReplies;
+  })
 
 const Comments = model('Comments', commentSchema);
 
