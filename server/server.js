@@ -2,6 +2,9 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 
+const http = require('http');
+const enforce = require('express-sslify');
+
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -12,6 +15,7 @@ const server = new ApolloServer({
     resolvers,
 }); 
 
+app.use(enforce.HTTPS());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -29,7 +33,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
     server.applyMiddleware({ app });
     
     db.once('open', () => {
-      app.listen(PORT, () => {
+      http.createServer(app).listen(PORT, () => {
         console.log(`API server running on port ${PORT}!`);
         console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
       })

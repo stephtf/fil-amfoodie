@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/stephtf/the-fil-am-food-blog#readme",
   "dependencies": {
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "express-sslify": "^1.2.0"
   }
 }
