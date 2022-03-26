@@ -3,6 +3,10 @@ const repliesSchema = require('./Replies');
 const dateFormat = require('../utils/dateFormat');
 
 const commentSchema = new Schema({
+    recipe: {
+      type: String,
+      required: true,
+    },
     name: {
         type: String,
         required: true,
@@ -19,13 +23,20 @@ const commentSchema = new Schema({
         maxlength: 280,
       },
     replies: [repliesSchema]
-});
+
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
+}
+);
 
 commentSchema 
   .virtual('commentCount')
   .get(function () {
-    const numberOfReplies = this.replies.length; 
-    return numberOfReplies;
+    return `${this.replies.length}`;
   })
 
 const Comments = model('Comments', commentSchema);
