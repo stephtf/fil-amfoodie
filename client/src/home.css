@@ -24,6 +24,20 @@ nav {
     height: 110px;
 }
 
+.navlink-container {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-styles {
+    margin-bottom: 10px;
+}
+
 .logo-container {
     display: flex;
     align-items: center;
@@ -35,4 +49,28 @@ nav {
     width: 50px;
     height: 50px;
     margin-right: 10px;
+}
+
+/* to contain the meat of the website */
+.body-container {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+/* hamburger button */
+.hamburger {
+    position: absolute;
+    /* flex-direction: column; */
+    top: 45px;
+    right: 40px;
+    width: 40px; 
+    height: 35px;
+}
+
+.hamburger .bar {
+    height: 6px; 
+    /* width: 100%; */
+    background-color: var(--pinoy-blue);
+    margin-bottom: 5px;
 }
