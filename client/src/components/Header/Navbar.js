@@ -16,7 +16,7 @@ const Navbar = () => {
                 </div>
                 <h2>FOOD BLOG</h2>
             </nav>
-            <NavLink to='/' className='hamburger' onClick={handleButtonClick}> 
+            <NavLink to='#' className='hamburger' onClick={handleButtonClick}> 
                     <div className='bar'></div>
                     <div className='bar'></div>
                     <div className='bar'></div>
