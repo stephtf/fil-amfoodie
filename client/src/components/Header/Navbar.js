@@ -11,10 +11,15 @@ const Navbar = () => {
         <div> 
             <nav>
                 <div className='logo-container'>
-                    <img className='img-logo' alt='favicon logo' src='/favicon.png'/>
-                    <h1>fil-am</h1> 
+                    <NavLink to='/'><img className='img-logo' alt='favicon logo' src='/favicon.png'/>
+                    </NavLink>
+                    <NavLink to='/'><h1>fil-am</h1> </NavLink>
                 </div>
+                <NavLink to='/'>
                 <h2>FOOD BLOG</h2>
+                </NavLink>
+
+               
             </nav>
             <NavLink to='#' className='hamburger' onClick={handleButtonClick}> 
                     <div className='bar'></div>
