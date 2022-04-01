@@ -1,15 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState } from 'react'; 
 import NavLinks from './NavLinks';
-import { useMediaQuery } from 'react-responsive';
 import HamburgerLinks from './HamburgerLinks';
+import { useMediaQuery } from 'react-responsive';
 
-
-const Header = () => {
-
+const Header = ({ currentPage, handlePageChange }) => {
+    const largeScreen = useMediaQuery({ query: '(min-width: 800px)' })
     const [toggle, setToggle] = useState(false);
     const handleButtonClick = () => setToggle(toggle => !toggle);
-    const largeScreen = useMediaQuery({ query: '(min-width: 800px)' })
 
     return (
         <div> 
@@ -28,7 +26,7 @@ const Header = () => {
                         <div className='bar'></div>
                 </NavLink>}
             </nav>
-            { toggle && <HamburgerLinks />}
+            { toggle && <HamburgerLinks currentPage={currentPage} handlePageChange={handlePageChange}/>}
         </div>
     )
 }
