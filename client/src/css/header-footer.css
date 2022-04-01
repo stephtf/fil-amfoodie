@@ -73,3 +73,9 @@ nav {
     background-color: var(--pinoy-blue);
     margin-bottom: 5px;
 }
+
+@media screen and (min-width: 800px) {
+    .hamlink-container {
+        display: none;
+    }
+}

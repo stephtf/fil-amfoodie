@@ -5,13 +5,11 @@ import Home from './pages/Home';
 import Recipies from './pages/Recipies';
 import About from './pages/About';
 import { useMediaQuery } from 'react-responsive';
-// import HamburgerLinks from './header/HamburgerLinks';
 
 const Container = () => {
     const largeScreen = useMediaQuery({ query: '(min-width: 800px)' })
     const [currentPage, setCurrentPage] = useState('Home');
     const handlePageChange = (page) => setCurrentPage(page); 
-
 
     const renderPage = () => {
         if (currentPage === 'Home') {
