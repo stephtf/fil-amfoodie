@@ -1,12 +1,12 @@
-import Navbar from './Header/Navbar';
+
 
 const Home = () => {
     
     return (
         <div>
-            <Navbar />
+
             <div className='body-container'>
-                {/* <h3>Welcome to our new blog!</h3> */}
+                <h3>Welcome to our new blog! This is the homepage.</h3>
             </div>
         </div>
     )

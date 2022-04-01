@@ -1,9 +1,9 @@
 import React from 'react';
 // import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Recipies from './components/Recipies';
-import About from './components/About';
+import Container from './components/Container';
+import Recipies from './components/pages/Recipies';
+import About from './components/pages/About';
 
 
 // const client = new ApolloClient({
@@ -16,7 +16,7 @@ export default function App() {
 return (
     <Router> 
       <Routes>
-        <Route exact path='/' element={<Home />} /> 
+        <Route exact path='/' element={<Container />} /> 
         <Route path='/recipies' element={<Recipies />} />
         <Route path='/about' element={<About />} />
       </Routes> 

@@ -1,0 +1,75 @@
+nav {
+    background-color: rgb(244, 244, 244);
+    width: 100vw;
+    height: 110px;
+    display: flex; 
+    flex-direction: row;
+}
+
+.logo-subtitle {
+    font-family: "Montserrat";
+    color: var(--pinoy-red);
+    font-size: 13px;
+    padding-left: 18px;
+    top: 75px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.img-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* navigation links */
+.nav-styles {
+    margin-bottom: 10px;
+}
+
+.navlink-styles {
+    margin-right: 50px;
+    
+}
+
+.navlink-styles:hover {
+    text-shadow: 0px 0px 10px var(--pinoy-yellow);
+}
+
+.active {
+    color: var(--pinoy-red);
+}
+
+.navlink-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 50px;
+    right: 50px;
+}
+
+.hamlink-container {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+/* hamburger button */
+.hamburger {
+    position: absolute;
+    top: 45px;
+    right: 40px;
+    width: 40px; 
+    height: 35px;
+}
+
+.hamburger .bar {
+    height: 6px; 
+    background-color: var(--pinoy-blue);
+    margin-bottom: 5px;
+}
