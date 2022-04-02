@@ -1,6 +1,6 @@
 import { useState } from 'react'; 
-import NavLinks from './header/NavLinks';
 import Header from './header/Header';
+import NavLinks from './header/NavLinks';
 import Home from './pages/Home';
 import Recipies from './pages/Recipies';
 import About from './pages/About';
