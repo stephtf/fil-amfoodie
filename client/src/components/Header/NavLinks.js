@@ -19,4 +19,6 @@ const NavLinks = ({ currentPage, handlePageChange }) => {
     )
 }
 
+
 export default NavLinks;
+
