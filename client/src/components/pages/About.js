@@ -2,7 +2,6 @@ import Header from '../header/Header';
 
 const About = () => {
 
-
     return (
         <div>
             <Header />

@@ -13,9 +13,9 @@ const Header = ({ currentPage, handlePageChange }) => {
         <div> 
             <nav>
                 <div className='logo-container'>
-                    <NavLink to='#' onClick={() => handlePageChange('Home')}><img className='img-logo' alt='favicon logo' src='/favicon.png'/>
+                    <NavLink to='/' onClick={() => handlePageChange('Home')}><img className='img-logo' alt='favicon logo' src='/favicon.png'/>
                     </NavLink>
-                    <NavLink to='#' onClick={() => handlePageChange('Home')}><div>
+                    <NavLink to='/' onClick={() => handlePageChange('Home')}><div>
                         <h1>fil-am</h1><h2 className='logo-subtitle'>FOOD BLOG</h2>
                     </div></NavLink>
                 </div> 
