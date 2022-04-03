@@ -11,7 +11,6 @@ const Header = ({ currentPage, handlePageChange }) => {
 
     useEffect(() => {
        setToggle(false); 
-       handlePageChange('none');
       }, [currentPage]);
 
     return (
