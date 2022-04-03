@@ -23,12 +23,11 @@ const Container = () => {
         }
       };
 
-
     return (
         <div>
             <Header currentPage={currentPage} handlePageChange={handlePageChange} />
             {largeScreen && 
-            <NavLinks currentPage={currentPage} handlePageChange={handlePageChange} />}
+            <NavLinks handlePageChange={handlePageChange} />}
             {renderPage()}
         </div>
     )

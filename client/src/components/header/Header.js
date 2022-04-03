@@ -11,6 +11,7 @@ const Header = ({ currentPage, handlePageChange }) => {
 
     useEffect(() => {
        setToggle(false); 
+       handlePageChange('none');
       }, [currentPage]);
 
     return (
@@ -30,7 +31,7 @@ const Header = ({ currentPage, handlePageChange }) => {
                         <div className='bar'></div>
                 </NavLink>}
             </nav>
-            { toggle && <HamburgerLinks currentPage={currentPage} handlePageChange={handlePageChange}/>}
+            { toggle && <HamburgerLinks handlePageChange={handlePageChange}/>}
         </div>
     )
 }
