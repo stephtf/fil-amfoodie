@@ -30,9 +30,7 @@ body {
 
 /* to contain the meat of the website */
 .body-container {
-  margin-right: 50px;
-  margin-left: 50px;
-  margin-top: 25px;
+  margin: 25px 50px
 }
 
 input, select, option, optgroup, textarea, button,
@@ -65,4 +63,9 @@ h2, h3 {
 
 p {
   margin-top: 15px;
+}
+
+/* text */
+.text-center {
+  text-align: center;
 }
