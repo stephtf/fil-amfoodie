@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-const NavLinks = ({ currentPage, handlePageChange }) => {
+const NavLinks = ({ handlePageChange }) => {
 
     return (
         <div> 

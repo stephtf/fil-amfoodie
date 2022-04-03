@@ -4,7 +4,7 @@ const RecipiesLinks = () => {
         <div>
             <div className='body-container'>
                 <h1>Recipies Links go here</h1>
-                <p>here some HamburgerLinks</p>
+                <p>here are some HamburgerLinks</p>
             </div>
            
         </div>

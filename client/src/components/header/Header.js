@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import NavLinks from './NavLinks';
 import HamburgerLinks from './HamburgerLinks';
 import { useMediaQuery } from 'react-responsive';
@@ -8,6 +8,10 @@ const Header = ({ currentPage, handlePageChange }) => {
     const largeScreen = useMediaQuery({ query: '(min-width: 800px)' })
     const [toggle, setToggle] = useState(false);
     const handleButtonClick = () => setToggle(toggle => !toggle);
+
+    useEffect(() => {
+       setToggle(false); 
+      }, [currentPage]);
 
     return (
         <div> 

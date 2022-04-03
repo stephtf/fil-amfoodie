@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-const HamburgerLinks = ({ currentPage, handlePageChange }) => {
+const HamburgerLinks = ({ handlePageChange }) => {
 
     return (
         <div> 
