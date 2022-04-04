@@ -1,7 +1,4 @@
-
-
 const About = () => {
-
     return (
     <div className='about-us'>
             <h1 className='text-center body-container'>about </h1>

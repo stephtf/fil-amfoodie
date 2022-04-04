@@ -4,6 +4,7 @@ import NavLinks from './header/NavLinks';
 import Home from './pages/Home';
 import Recipes from './pages/Recipes';
 import About from './pages/About';
+import Footer from './header/Footer';
 import { useMediaQuery } from 'react-responsive';
 
 const Container = () => {
@@ -29,6 +30,7 @@ const Container = () => {
             {largeScreen && 
             <NavLinks handlePageChange={handlePageChange} />}
             {renderPage()}
+            <Footer/>
         </div>
     )
 }
