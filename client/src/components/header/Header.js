@@ -10,8 +10,27 @@ const Header = ({ currentPage, handlePageChange }) => {
     const handleButtonClick = () => setToggle(toggle => !toggle);
 
     useEffect(() => {
-       setToggle(false); 
+       setToggle(false);
       }, [currentPage]);
+
+    const aboutComponent = document.getElementsByClassName('about-us')[0];
+    const bodyContainer = document.getElementsByClassName('body-container')[0];
+
+    if(toggle) {
+        if(bodyContainer) {
+            bodyContainer.style.display = 'none';
+        }
+        if(aboutComponent) {
+            aboutComponent.style.display = 'none';
+        }
+    } else {
+        if(bodyContainer) {
+            bodyContainer.style.display = 'block';
+        }
+        if(aboutComponent) {
+            aboutComponent.style.display = 'block';
+        }
+    }
 
     return (
         <div> 

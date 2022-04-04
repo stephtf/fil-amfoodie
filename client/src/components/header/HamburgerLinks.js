@@ -2,17 +2,19 @@ import { NavLink } from 'react-router-dom';
 
 const HamburgerLinks = ({ handlePageChange }) => {
 
+
+
     return (
-        <div> 
-            <ul className='hamlink-container'>
+        <div className='hamlink-container'> 
+            <ul>
                 <li className='nav-styles'>
-                    <NavLink to='/' onClick={() => handlePageChange('Home')}>Home</NavLink>
+                    <NavLink to='/' className='ham-link' onClick={() => handlePageChange('Home')}>Home</NavLink>
                 </li>
                 <li className='nav-styles'>
-                    <NavLink to='/recipies' onClick={() => handlePageChange('Recipies')}>Recipies</NavLink>
+                    <NavLink to='/recipes' className='ham-link' onClick={() => handlePageChange('Recipes')}>Recipes</NavLink>
                 </li>
                 <li className='nav-styles'>
-                    <NavLink to='/about' onClick={() => handlePageChange('About')}>About</NavLink>
+                    <NavLink className='ham-link' to='/about' onClick={() => handlePageChange('About')}>About</NavLink>
                 </li>
             </ul>
         </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from './header/Header';
 import NavLinks from './header/NavLinks';
 import Home from './pages/Home';
-import Recipies from './pages/Recipies';
+import Recipes from './pages/Recipes';
 import About from './pages/About';
 import { useMediaQuery } from 'react-responsive';
 
@@ -15,12 +15,12 @@ const Container = () => {
         if (currentPage === 'Home') {
           return <Home />;
         }
-        if (currentPage === 'Recipies') {
-          return <Recipies />;
+        if (currentPage === 'Recipes') {
+          return <Recipes />;
         }
         if (currentPage === 'About') {
           return <About />;
-        }
+        } 
       };
 
     return (

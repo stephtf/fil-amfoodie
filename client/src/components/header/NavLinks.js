@@ -9,7 +9,7 @@ const NavLinks = ({ handlePageChange }) => {
                     <NavLink to='/' onClick={() => handlePageChange('Home')}>Home</NavLink>
                 </li>
                 <li className='navlink-styles'>
-                    <NavLink to='/recipies' onClick={() => handlePageChange('Recipies')}>Recipies</NavLink>
+                    <NavLink to='/recipes' onClick={() => handlePageChange('Recipes')}>Recipes</NavLink>
                 </li>
                 <li className='navlink-styles'>
                     <NavLink to='/about' onClick={() => handlePageChange('About')}>About</NavLink>
@@ -18,7 +18,6 @@ const NavLinks = ({ handlePageChange }) => {
         </div>
     )
 }
-
 
 export default NavLinks;
 

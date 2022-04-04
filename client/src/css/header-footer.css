@@ -52,11 +52,19 @@ nav {
     right: 50px;
 }
 
+.ham-link.active {
+    color: var(--pinoy-blue);
+}
+
+.ham-link:hover {
+    text-shadow: 0px 0px 10px var(--pinoy-yellow);
+}
+
 .hamlink-container {
-    list-style: none;
     text-align: center;
-    padding-left: 0;
-    margin-top: 10px;
+    margin-top: 80px;
+    line-height: 4rem;
+    font-size: 25px;
 }
 
 /* hamburger button */

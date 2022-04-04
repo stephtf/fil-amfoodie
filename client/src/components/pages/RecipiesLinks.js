@@ -1,9 +1,9 @@
-const RecipiesLinks = () => {
+const RecipesLinks = () => {
     
     return (
         <div>
             <div className='body-container'>
-                <h1>Recipies Links go here</h1>
+                <h1>Recipes Links go here</h1>
                 <p>here are some HamburgerLinks</p>
             </div>
            
@@ -11,4 +11,4 @@ const RecipiesLinks = () => {
     )
 }
 
-export default RecipiesLinks; 
+export default RecipesLinks; 

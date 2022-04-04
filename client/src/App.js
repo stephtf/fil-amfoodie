@@ -8,7 +8,7 @@ return (
     <Router> 
       <Routes>
         <Route exact path='/' element={<Container />} /> 
-        <Route path='/recipies' element={<Container />} />
+        <Route path='/recipes' element={<Container />} />
         <Route path='/about' element={<Container />} />
       </Routes> 
     </Router>
