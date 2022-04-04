@@ -1,20 +1,18 @@
 import { NavLink } from 'react-router-dom';
 
-const HamburgerLinks = ({ handlePageChange }) => {
-
-
+const HamburgerLinks = ({ handleButtonClick, currentPage, handlePageChange }) => {
 
     return (
         <div className='hamlink-container'> 
             <ul>
                 <li className='nav-styles'>
-                    <NavLink to='/' className='ham-link' onClick={() => handlePageChange('Home')}>Home</NavLink>
+                    {currentPage==='Home' ? <NavLink to='/' className='ham-link' onClick={handleButtonClick}>Home</NavLink> : <NavLink to='/' className='ham-link' onClick={() => handlePageChange('Home')}>Home</NavLink> }
                 </li>
                 <li className='nav-styles'>
-                    <NavLink to='/recipes' className='ham-link' onClick={() => handlePageChange('Recipes')}>Recipes</NavLink>
+                    {currentPage==='Recipes' ? <NavLink to='/recipes' className='ham-link' onClick={handleButtonClick}>Recipes</NavLink> : <NavLink to='/recipes' className='ham-link' onClick={() => handlePageChange('Recipes')}>Recipes</NavLink>}                    
                 </li>
                 <li className='nav-styles'>
-                    <NavLink className='ham-link' to='/about' onClick={() => handlePageChange('About')}>About</NavLink>
+                    {currentPage==='About' ? <NavLink className='ham-link' to='/about' onClick={handleButtonClick}>About</NavLink> : <NavLink className='ham-link' to='/about' onClick={() => handlePageChange('About')}>About</NavLink>}
                 </li>
             </ul>
         </div>

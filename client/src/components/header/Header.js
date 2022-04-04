@@ -36,11 +36,13 @@ const Header = ({ currentPage, handlePageChange }) => {
         <div> 
             <nav>
                 <div className='logo-container'>
-                    <NavLink to='/' onClick={() => handlePageChange('Home')}><img className='img-logo' alt='favicon logo' src='/favicon.png'/>
-                    </NavLink>
-                    <NavLink to='/' onClick={() => handlePageChange('Home')}><div>
-                        <h1>fil-am</h1><h2 className='logo-subtitle'>FOOD BLOG</h2>
-                    </div></NavLink>
+                    {currentPage==='Home' ? <NavLink to='/' onClick={handleButtonClick}><img className='img-logo' alt='favicon logo' src='/favicon.png'/>
+                    </NavLink> : <NavLink to='/' onClick={() => handlePageChange('Home')}><img className='img-logo' alt='favicon logo' src='/favicon.png'/></NavLink> }
+                    {currentPage==='Home' ? <NavLink to='/' onClick={handleButtonClick}><div>
+                    <h1>fil-am</h1><h2 className='logo-subtitle'>FOOD BLOG</h2>
+                    </div></NavLink> : <NavLink to='/' onClick={() => handlePageChange('Home')}><div>
+                    <h1>fil-am</h1><h2 className='logo-subtitle'>FOOD BLOG</h2>
+                    </div></NavLink>}
                 </div> 
                 { largeScreen ? <NavLinks /> :
                 <NavLink to='#' className='hamburger' onClick={handleButtonClick}> 
@@ -49,7 +51,7 @@ const Header = ({ currentPage, handlePageChange }) => {
                         <div className='bar'></div>
                 </NavLink>}
             </nav>
-            { toggle && <HamburgerLinks handlePageChange={handlePageChange}/>}
+            { toggle && <HamburgerLinks handleButtonClick={handleButtonClick} currentPage={currentPage} handlePageChange={handlePageChange}/>}
         </div>
     )
 }
