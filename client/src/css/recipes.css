@@ -1,0 +1,49 @@
+.recipelink-styles {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    color: var(--pinoy-blue);
+    white-space: nowrap;
+}
+
+.recipelink-inactive {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    color: var(--pinoy-blue);
+    white-space: nowrap;
+}
+
+.recipelink-styles:hover {
+    text-shadow: 0px 0px 10px rgb(246, 215, 137);
+}
+
+.recipelink-styles.active {
+    border-bottom-color: var(--pinoy-blue);
+    border-bottom-style: solid;
+    border-bottom-width: 2.5px;
+}
+
+.recipelinks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    margin-bottom: 25px;
+}
+
+@media screen and (min-width: 800px) {
+    .recipelink-styles {
+        margin-right: 50px;
+    }
+
+    .recipelink-inactive {
+        margin-right: 50px;
+    }
+
+    .recipelinks-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}

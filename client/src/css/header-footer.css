@@ -33,14 +33,16 @@ nav {
 
 .navlink-styles {
     margin-right: 50px;
-    
+    font-family: 'Montserrat';
+    color: var(--pinoy-blue);
+    font-weight: bold;
 }
 
 .navlink-styles:hover {
     text-shadow: 0px 0px 10px var(--pinoy-yellow);
 }
 
-.active {
+.navlink-styles.active {
     color: var(--pinoy-red);
 }
 
@@ -52,10 +54,6 @@ nav {
     right: 50px;
 }
 
-/* .ham-link.active {
-    color: var(--pinoy-blue);
-} */
-
 .ham-link:hover {
     text-shadow: 0px 0px 10px var(--pinoy-yellow);
 }
@@ -65,6 +63,16 @@ nav {
     margin-top: 80px;
     line-height: 4rem;
     font-size: 25px;
+}
+
+.ham-link {
+    font-family: 'Montserrat';
+    color: var(--pinoy-blue);
+    font-weight: bold;
+}
+
+.ham-link.active {
+    color: var(--pinoy-red);
 }
 
 /* hamburger button */
@@ -87,7 +95,6 @@ nav {
         display: none;
     }
 }
-
 
 footer {
     height: 50px;

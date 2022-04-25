@@ -4,6 +4,7 @@ import './css/index.css';
 import './css/home.css';
 import './css/about.css';
 import './css/header-footer.css';
+import './css/recipes.css';
 import App from './App';
 
 
