@@ -1,9 +1,9 @@
-.small-image {
+.about-image {
     width: 100%;
 }
 
 @media screen and (min-width: 500px) {
-    .small-image {
+    .about-image {
         width: 300px;
         margin-left: 50px;
     }
@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 500px) and (max-width: 800px) {
-    .small-image {
+    .about-image {
         display: block;
         margin-left: auto;
         margin-right: auto;   

@@ -1,7 +1,7 @@
 const Dessert = () => {
     return (
-        <div className='body-container'>
-            <h2>dessert recipes coming soon!</h2>
+        <div className='body-container recipes-space'>
+            <h3>dessert recipes coming soon!</h3>
         </div>
 
     )

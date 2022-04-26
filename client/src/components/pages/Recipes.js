@@ -33,8 +33,8 @@ const Recipes = () => {
     }
 
     return (
-        <div>
-            <div className='body-container'>
+        <div className='body-container'>
+            <div>
                 <RecipesLinks currentRecipe={currentRecipe} handleRecipeChange={handleRecipeChange}/>
             </div>
             {renderRecipes()}

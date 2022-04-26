@@ -1,7 +1,9 @@
+import LumpiangShanghai from "./individual-recipes/LumpiangShanghai";
+
 const Appetizers = () => {
     return (
-        <div className='body-container'>
-            <h2>appetizer recipes coming soon!</h2>
+        <div className='body-container recipes-space'>
+            <LumpiangShanghai />
         </div>
     )
 }

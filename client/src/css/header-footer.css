@@ -1,5 +1,6 @@
 nav {
-    background-color: rgb(244, 244, 244);
+    /* background-color: rgb(244, 244, 244); */
+    background-color: #f9f1e6;
     width: 100vw;
     height: 110px;
     display: flex; 

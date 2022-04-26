@@ -30,7 +30,7 @@ body {
 
 /* to contain the meat of the website */
 .body-container {
-  margin: 25px 50px;
+  margin: 10px 10px;
 }
 
 input, select, option, optgroup, textarea, button,
@@ -54,9 +54,17 @@ h1 {
   margin: 0;
 }
 
-h2, h3 {
+h2 {
+  font-family: "Sacramento";
+  color: var(--pinoy-blue);
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+h3 {
   font-family: "Montserrat";
   color: var(--pinoy-red);
+  font-size: 18px;
 }
 
 p {
@@ -66,4 +74,10 @@ p {
 /* text */
 .text-center {
   text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  .body-container {
+    margin: 25px 50px;
+  }
 }

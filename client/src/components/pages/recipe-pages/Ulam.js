@@ -1,7 +1,9 @@
+import ChickenAdobo from "./individual-recipes/ChickenAdobo";
+
 const Ulam = () => {
     return (
-        <div className='body-container'>
-        <h2>ulam recipes coming soon!</h2>
+        <div className='body-container recipes-space'>
+        <ChickenAdobo />
         </div>
     )
 }
