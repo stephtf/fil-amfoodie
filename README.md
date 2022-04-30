@@ -12,7 +12,6 @@ This blog is a work in progress! It will contain recipies for Filipino dishes, a
 * Node.js 
 * HTML
 * CSS
-* Bootstrap
 
 ## Link
 Check out the blog: https://www.filamfoodblog.com

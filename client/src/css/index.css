@@ -30,7 +30,7 @@ body {
 
 /* to contain the meat of the website */
 .body-container {
-  margin: 10px 10px;
+  margin: 5px 5px;
 }
 
 input, select, option, optgroup, textarea, button,
@@ -39,7 +39,7 @@ pre, code {
   font-family: inherit;
 }
 
-ol, ul {
+ul {
   list-style: none;
 }
 
@@ -58,13 +58,37 @@ h2 {
   font-family: "Sacramento";
   color: var(--pinoy-blue);
   font-size: 35px;
-  margin-bottom: 15px;
+}
+
+/* provides space under h2 and images for recipes */
+.space-below-10 {
+  margin-bottom: 10px;
+}
+
+.space-below-25 {
+  margin-bottom: 25px;
+}
+
+.space-above-25 {
+  margin-top: 25px;
 }
 
 h3 {
   font-family: "Montserrat";
   color: var(--pinoy-red);
   font-size: 18px;
+}
+
+/* this h4 is styled for the 'ingredients' subtitle */
+h4 {
+  font-family: "Montserrat";
+  color: var(--pinoy-blue);
+  font-weight: bolder;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom-color: var(--pinoy-blue);
+  border-bottom-style: solid;
+  border-bottom-width: 2.5px;
 }
 
 p {
