@@ -1,12 +1,17 @@
+import Header from "../../../header/Header";
+import Ulam from "../Ulam";
+import adobo from '../recipe-photos/adobo.jpg';
+
 const ChickenAdobo = () => {
   return (
     <div>
-      <h2 className="space-below-10">Chicken Adobo</h2>
-      <h3>A Filipino staple</h3>
-      <img
-        className="main-image space-below-25"
-        src="recipe-photos/adobo.jpg"
-        alt="a sushi bowl"
+    <Header />
+      <div className='body-container'>
+      <h2 className="space-below-10 recipe-titles">Chicken Adobo</h2>
+      <h3 className='center-text'>A Filipino staple</h3>
+      <img src={adobo}
+        className="main-image space-below-25" 
+        alt="a pot of chicken adobo"
       />
 
       <div className="ingredients-container">
@@ -37,6 +42,8 @@ const ChickenAdobo = () => {
           </ol>
         </div>
       </div>
+      </div>
+      <Ulam />
     </div>
   );
 };

@@ -1,18 +1,18 @@
 import { NavLink } from 'react-router-dom';
 
-const NavLinks = ({ handlePageChange }) => {
+const NavLinks = () => {
 
     return (
         <div> 
             <ul className='navlink-container'>
                 <li>
-                    <NavLink className='navlink-styles' to='/' onClick={() => handlePageChange('Home')}>Home</NavLink>
+                    <NavLink className='navlink-styles' to='/'>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink className='navlink-styles' to='/recipes' onClick={() => handlePageChange('Recipes')}>Recipes</NavLink>
+                    <NavLink className='navlink-styles' to='/recipes'>Recipes</NavLink>
                 </li>
                 <li>
-                    <NavLink className='navlink-styles' to='/about' onClick={() => handlePageChange('About')}>About</NavLink>
+                    <NavLink className='navlink-styles' to='/about'>About</NavLink>
                 </li>
             </ul>
         </div>

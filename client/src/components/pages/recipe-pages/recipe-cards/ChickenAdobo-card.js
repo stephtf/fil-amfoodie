@@ -1,24 +1,20 @@
 import { Link } from 'react-router-dom';
-
+import adobo from '../recipe-photos/adobo.jpg'
 
 const ChickenAdoboCard = ({ handleRecipe }) => {
 
-
-
-
     return (
         <div> 
+            <Link to='/recipes/chicken-adobo'>
             <div className='recipe-cards-container'>
-                <div>hello chicken adobo</div>
-                <Link to='#chicken-adobo' onClick={() => handleRecipe('ChickenAdobo')}>
+                <div className='space-below-10 card-title'>Chicken Adobo</div>
+                <img src={adobo} className='card-image'/>
+                
                 <button>View Recipe</button>
-                </Link>
+                
                 <div className='space-below-25'></div>
             </div>
-
-
-
-
+            </Link>
         </div>
     )
 }

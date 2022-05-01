@@ -16,9 +16,6 @@ const RecipesLinks = ({ menuCategory, handleMenuChange }) => {
                         <NavLink className={ menuCategory === 'Ulam' ? 'recipelink-styles active' : 'recipelink-inactive'}  to='#ulam' onClick={() => handleMenuChange('Ulam')}>Ulam</NavLink>
                     </li>
                     <li className='space-below-25'>
-                        <NavLink className={ menuCategory === 'Meriyenda' ? 'recipelink-styles active' : 'recipelink-inactive'}  to='#meriyenda' onClick={() => handleMenuChange('Meriyenda')}>Meriyenda</NavLink>
-                    </li>
-                    <li className='space-below-25'>
                         <NavLink className={ menuCategory === 'Dessert' ? 'recipelink-styles active' : 'recipelink-inactive'}  to='#dessert' onClick={() => handleMenuChange('Dessert')}>Dessert</NavLink>
                     </li>
                     <li className='space-below-25'>

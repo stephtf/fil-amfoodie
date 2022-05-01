@@ -73,6 +73,10 @@ h2 {
   margin-top: 25px;
 }
 
+.center-text {
+  text-align: center;
+}
+
 h3 {
   font-family: "Montserrat";
   color: var(--pinoy-red);
