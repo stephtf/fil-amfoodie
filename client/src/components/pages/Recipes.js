@@ -8,26 +8,26 @@ import Dessert from "./recipe-pages/Dessert";
 import Drinks from "./recipe-pages/Drinks";
 
 const Recipes = () => {
-    const [currentRecipe, setCurrentRecipe] = useState('AllRecipes');
-    const handleRecipeChange = (page) => setCurrentRecipe(page);
+    const [menuCategory, setMenuCategory] = useState('AllRecipes');
+    const handleMenuChange = (page) => setMenuCategory(page);
 
-    const renderRecipes = () => {
-        if(currentRecipe === 'AllRecipes') {
+    const renderMenu = () => {
+        if(menuCategory === 'AllRecipes') {
             return <AllRecipes />;
         } 
-        if(currentRecipe === 'Appetizers') {
+        if(menuCategory === 'Appetizers') {
             return <Appetizers />;
         }
-        if(currentRecipe === 'Ulam') {
+        if(menuCategory === 'Ulam') {
             return <Ulam />; 
         }
-        if(currentRecipe === 'Meriyenda') {
+        if(menuCategory === 'Meriyenda') {
             return <Meriyenda />;
         }
-        if(currentRecipe === 'Dessert') {
+        if(menuCategory === 'Dessert') {
             return <Dessert />;
         }
-        if(currentRecipe === 'Drinks') {
+        if(menuCategory === 'Drinks') {
             return <Drinks /> 
         }
     }
@@ -35,9 +35,9 @@ const Recipes = () => {
     return (
         <div className='body-container'>
             <div>
-                <RecipesLinks currentRecipe={currentRecipe} handleRecipeChange={handleRecipeChange}/>
+                <RecipesLinks menuCategory={menuCategory} handleMenuChange={handleMenuChange}/>
             </div>
-            {renderRecipes()}
+            {renderMenu()}
         </div>
     )
 }

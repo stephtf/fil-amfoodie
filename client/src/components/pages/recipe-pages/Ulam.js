@@ -1,10 +1,23 @@
-import ChickenAdobo from "./individual-recipes/ChickenAdobo";
+import { useState } from 'react';
+import ChickenAdoboCard from "./recipe-cards/ChickenAdobo-card";
+import ChickenAdobo from '../recipe-pages/individual-recipes/ChickenAdobo';
+
+
 
 const Ulam = () => {
+
+    const [Recipe, setRecipe] = useState('');
+    const handleRecipe = (show) => setRecipe(show);
+
     return (
-        <div className='body-container recipes-space'>
-        <ChickenAdobo />
+        <div>
+            <div className='body-container recipes-space'>
+                <ChickenAdoboCard handleRecipe={handleRecipe}/> 
+            </div>
+            {Recipe === 'ChickenAdobo' && <ChickenAdobo /> }
         </div>
+
+
     )
 }
 
