@@ -7,10 +7,9 @@ import './css/header-footer.css';
 import './css/recipes.css';
 import App from './App';
 
-
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -36,8 +36,8 @@ const Header = ({ currentPage, handlePageChange }) => {
         <div> 
             <nav>
                 <div className='logo-container'>
-                    <Link to='/' onClick={() => handlePageChange('Home')}><img className='img-logo' alt='favicon logo' src='/favicon.png'/></Link>
-                    <Link to='/' onClick={() => handlePageChange('Home')}><div>
+                    <Link to='/'><img className='img-logo' alt='favicon logo' src='/favicon.png'/></Link>
+                    <Link to='/'><div>
                     <h1>fil-am</h1><h2 className='logo-subtitle'>FOOD BLOG</h2>
                     </div></Link>
                 </div> 
@@ -48,7 +48,7 @@ const Header = ({ currentPage, handlePageChange }) => {
                         <div className='bar'></div>
                 </NavLink>}
             </nav>
-            { toggle && <HamburgerLinks handleButtonClick={handleButtonClick} currentPage={currentPage} handlePageChange={handlePageChange}/>}
+            { toggle && <HamburgerLinks handleButtonClick={handleButtonClick}/>}
         </div>
     )
 }
