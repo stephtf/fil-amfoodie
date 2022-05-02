@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 import RecipeNav from './components/pages/RecipeNav';
 import ChickenAdobo from './components/pages/recipe-pages/individual-recipes/ChickenAdobo';
 import LumpiangShanghai from './components/pages/recipe-pages/individual-recipes/LumpiangShanghai';
+import CalamansiCocktail from './components/pages/recipe-pages/individual-recipes/CalamansiCocktail';
 
 
 export default function App() {
@@ -13,14 +14,17 @@ return (
   <div>
   <Router> 
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/recipes' element={<RecipeNav />}/>
-            <Route path='/recipes/chicken-adobo' element={<ChickenAdobo /> }/>
-            <Route path='/recipes/lumpiang-shanghai' element={<LumpiangShanghai /> }/>
-      </Routes> 
+        <Route path='/recipes' element={<RecipeNav />} />
+
+        {/* all individual recipe APIs below */}
+        <Route path='/recipes/chicken-adobo' element={<ChickenAdobo />} />
+        <Route path='/recipes/lumpiang-shanghai' element={<LumpiangShanghai />} />
+        <Route path='/recipes/calamansi-cocktail' element={<CalamansiCocktail />} />
+      </Routes>
     </Router>
   </div>
-    
 )
 };
+

@@ -91,6 +91,8 @@ nav {
     margin-bottom: 5px;
 }
 
+
+
 @media screen and (min-width: 800px) {
     .hamlink-container {
         display: none;
@@ -99,4 +101,11 @@ nav {
 
 footer {
     height: 50px;
+    margin-top: 50px;
+}
+
+.footer-pin {
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
