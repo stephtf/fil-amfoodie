@@ -52,6 +52,29 @@ textarea {
     flex-direction: column-reverse;
 }
 
+.thanks-button {
+    width: 300px;
+    background-color: rgb(242, 230, 232); 
+}
+
+.thanks-button:hover {
+    opacity: 85%;
+}
+
+.thanks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Sacramento';
+    font-size: 35px;
+    margin-top: 200px;
+}
+
+.thanks-text {
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+
 @media screen and (min-width: 500px) {
     .about-image {
         width: 300px;
