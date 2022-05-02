@@ -1,11 +1,12 @@
 # Fil-Am Food Blog
 
 ## Description 
-This blog is a work in progress! It will contain recipies for Filipino dishes, as well as videos on how to make them. Check back for more.
+This blog is a work in progress! It will contain recipies for Filipino and American dishes as well as stories about my experiences making them. Check back for more!
 
 ## Technologies 
 * MongoDB
 * Mongoose 
+* MongoDB Atlas
 * GraphQL
 * React 
 * JavaScript 
@@ -14,7 +15,7 @@ This blog is a work in progress! It will contain recipies for Filipino dishes, a
 * CSS
 
 ## Link
-Check out the blog: https://www.filamfoodblog.com
+Check out the deployed site: https://www.filamfoodblog.com
 
 ## Questions 
 If you have any questions about the repo, open an issue or contact me directly at stfajardo@gmail.com. You can find more of my work at [stephfajardo.com](https://www.stephfajardo.com).
