@@ -1,7 +1,7 @@
 # Fil-Am Food Blog
 
 ## Description 
-This blog is a work in progress! It will contain recipies for Filipino and American dishes as well as stories about my experiences making them. Check back for more!
+The Fil-Am Food Blog contains recipes for Filipino and American dishes, as well as stories about my experiences making them. Users can view recipes and leave comments on each recipe page. 
 
 ## Technologies 
 * MongoDB
