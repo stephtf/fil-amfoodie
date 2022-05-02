@@ -1,6 +1,7 @@
 import Header from "../../../header/Header";
 import Ulam from "../Ulam";
 import adobo from '../recipe-photos/adobo.jpg';
+import Footer from "../../../header/Footer";
 
 const ChickenAdobo = () => {
   return (
@@ -44,6 +45,7 @@ const ChickenAdobo = () => {
       </div>
       </div>
       <Ulam />
+      <Footer />
     </div>
   );
 };

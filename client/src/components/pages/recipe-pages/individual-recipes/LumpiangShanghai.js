@@ -1,3 +1,4 @@
+import Footer from "../../../header/Footer";
 import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
@@ -60,6 +61,7 @@ const LumpiangShanghai = () => {
         </div>
       </div>
       <Appetizers />
+      <Footer />
     </div>
   );
 };

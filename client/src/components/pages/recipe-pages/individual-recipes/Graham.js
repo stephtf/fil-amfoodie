@@ -1,3 +1,4 @@
+import Footer from "../../../header/Footer";
 import Header from "../../../header/Header";
 import Dessert from "../Dessert";
 import graham from '../recipe-photos/graham.jpg';
@@ -40,6 +41,7 @@ const Graham = () => {
       </div>
       </div>
       <Dessert />
+      <Footer />
     </div>
   );
 };

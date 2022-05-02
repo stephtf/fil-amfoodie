@@ -1,0 +1,30 @@
+.home-title {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; 
+}
+
+.favorites-space {
+    padding-top: 25px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #f9f1e6;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width: 800px) {
+    .favorites-space {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}

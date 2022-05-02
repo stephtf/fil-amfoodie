@@ -1,3 +1,4 @@
+import Footer from "../../../header/Footer";
 import Header from "../../../header/Header";
 import Drinks from "../Drinks";
 import calamansi from '../recipe-photos/calamansi.jpg';
@@ -37,6 +38,7 @@ const CalamansiCocktail = () => {
       </div>
       </div>
       <Drinks />
+      <Footer />
     </div>
   );
 };
