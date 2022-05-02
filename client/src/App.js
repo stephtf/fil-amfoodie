@@ -6,6 +6,7 @@ import RecipeNav from './components/pages/RecipeNav';
 import ChickenAdobo from './components/pages/recipe-pages/individual-recipes/ChickenAdobo';
 import LumpiangShanghai from './components/pages/recipe-pages/individual-recipes/LumpiangShanghai';
 import CalamansiCocktail from './components/pages/recipe-pages/individual-recipes/CalamansiCocktail';
+import Graham from './components/pages/recipe-pages/individual-recipes/Graham';
 
 
 export default function App() {
@@ -22,6 +23,8 @@ return (
         <Route path='/recipes/chicken-adobo' element={<ChickenAdobo />} />
         <Route path='/recipes/lumpiang-shanghai' element={<LumpiangShanghai />} />
         <Route path='/recipes/calamansi-cocktail' element={<CalamansiCocktail />} />
+        <Route path='/recipes/graham' element={<Graham />} />
+
       </Routes>
     </Router>
   </div>
