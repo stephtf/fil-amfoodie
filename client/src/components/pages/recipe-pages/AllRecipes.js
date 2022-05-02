@@ -5,7 +5,7 @@ import Ulam from "./Ulam";
 
 const AllRecipes = () => {
     return (
-        <div className='body-container'>
+        <div className='body-container recipes-space'>
             <Appetizers />
             <Ulam /> 
             <Dessert />

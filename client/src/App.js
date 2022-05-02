@@ -13,9 +13,9 @@ return (
   <div>
   <Router> 
       <Routes>
-        <Route path='/*' element={<Home />}/>
+        <Route exact path='/' element={<Home />}/>
           <Route path='about' element={<About />} />
-          <Route path='recipes/*' element={<RecipeNav />}/>
+          <Route exact path='recipes' element={<RecipeNav />}/>
             <Route path='/recipes/chicken-adobo' element={<ChickenAdobo /> }/>
             <Route path='/recipes/lumpiang-shanghai' element={<LumpiangShanghai /> }/>
       </Routes> 
