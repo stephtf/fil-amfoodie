@@ -53,12 +53,13 @@ const About = () => {
                         <form className='form-group' action="https://formsubmit.co/hellostephf@gmail.com" method="POST" >
                             <h3 className='space-below-10'>SEND US A MESSAGE</h3>
                             <label for='Name' className='form-label'>Name </label>
-                            <input type='text' name='Name' className='form-style textbox-style' required/>
+                            <input type='Name' name='Name' className='form-style textbox-style' required/>
                             <label for='Name' className='form-label'>E-mail </label>
-                            <input type='text' name='E-mail' className='form-style textbox-style' required/>
+                            <input type='E-mail' name='E-mail' className='form-style textbox-style' required/>
                             <label for='Name' className='form-label'>Message </label>
-                            <textarea rows='10' name='Message' className='form-style textbox-style' required/>
+                            <textarea rows='10' type='Message' name='Message' className='form-style textbox-style' required/>
                             <button className='form-button'>Send</button>
+                            <input type="hidden" name="_next" value="https://www.filamfoodblog.com/thanks"></input>
                         </form>
                        
                     </div>
