@@ -15,6 +15,7 @@ const Header = ({ currentPage, handlePageChange }) => {
 
     const aboutComponent = document.getElementsByClassName('about-us')[0];
     const bodyContainer = document.getElementsByClassName('body-container')[0];
+    const footer = document.querySelectorAll('footer')[0];
 
     if(toggle) {
         if(bodyContainer) {
@@ -23,12 +24,18 @@ const Header = ({ currentPage, handlePageChange }) => {
         if(aboutComponent) {
             aboutComponent.style.display = 'none';
         }
+        if(footer) {
+            footer.style.display = 'none';
+        }
     } else {
         if(bodyContainer) {
             bodyContainer.style.display = 'block';
         }
         if(aboutComponent) {
             aboutComponent.style.display = 'block';
+        }
+        if(footer) {
+            footer.style.display = 'block';
         }
     }
 
