@@ -124,7 +124,10 @@ button:hover {
     cursor: pointer;
 }
 
-
+.reply-button {
+    width: 50px;
+    border-radius: 7px;
+}
 
 .recipe-titles {
     padding-top: 20px;
@@ -146,6 +149,10 @@ button:hover {
     padding: 25px;
     display: flex;
     flex-direction: column;
+}
+
+.comment-box {
+    background-color: var(--navbar-kulay);
 }
 
 @media screen and (min-width: 800px) {

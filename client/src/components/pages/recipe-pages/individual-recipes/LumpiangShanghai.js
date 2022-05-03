@@ -2,13 +2,15 @@ import Footer from "../../../header/Footer";
 import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const LumpiangShanghai = () => {
 
+  const recipeName = 'lumpiangshanghai';
+
   // adding new data to formData state
   const [formData, setFormData] = useState({
-    recipe: 'lumpiangshanghai',
+    recipe: `${recipeName}`,
     name: '',
     message: '',
   });
@@ -46,12 +48,9 @@ const LumpiangShanghai = () => {
       })
   }
 
-  // const [commentData, setCommentData] = useState([]);
-  // useEffect(() => {
-    
-  //   })
-
-    fetch('http://localhost:3001/comments/Chicken Adobo', {
+  const [commentData, setCommentData] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3001/comments/${recipeName}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -60,12 +59,36 @@ const LumpiangShanghai = () => {
     })
       .then((res) => res.json())
       .then((comments) => {
-        console.log(comments);
-
+          setCommentData(comments.reverse());
       })
       .catch(err => {
         console.error(err);
       })
+    }, []);
+
+  const [replyForm, setReplyForm] = useState(false);
+  const handleReply = () => setReplyForm(replyForm => !replyForm); 
+  // const replyId = document.getElementById('replyId');
+
+    useEffect(() => {
+     setReplyForm(false);
+    //  console.log(replyId);
+    //  const replyIdValue = replyId.value;
+    //  console.log(replyIdValue)
+    }, [])
+
+    const replyFormdiv = document.getElementsByClassName('replyform-container')[0];
+
+    if(replyForm ) {
+      if(replyFormdiv) {
+        replyFormdiv.style.display = 'none'; 
+      }
+    } else {
+      if(replyFormdiv) {
+        replyFormdiv.style.display = 'block';
+      }
+    }
+
 
   
 
@@ -128,6 +151,37 @@ const LumpiangShanghai = () => {
         <div className='space-above-50'>
           <div>
             <h2 className="text-center space-below-25">Comments</h2>
+              {commentData && commentData.map((comment) => {
+                return (
+                  <div className='comment-box' key={comment._id}>
+                    <h5>{comment.name}</h5>
+                    <small>{comment.timestamp}</small>
+                    <p>{comment.message}</p>
+                    <button className='reply-button' onClick={handleReply} id='replyId' value={comment._id}>Reply</button>
+                    <p>{comment.replies}</p>
+                    {comment.replies > 0? 
+                    <button className='reply-button' onClick={handleReply}>Reply</button> : <div></div>}
+          { replyForm && 
+           <div className='replyform-container'>
+           <form className='comment-group space-below-25'>
+                 <h3 className='space-below-10'>Post a Reply</h3>
+                 <label htmlFor='name' className='form-label'>Name </label>
+                 <input onChange={handleChange} type='name' value={formData.name} name='name' className='form-style textbox-style' required/>
+                 <label htmlFor='message' className='form-label'>Message </label>
+                 <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
+                 <button onClick={handleFormSubmit} className='form-button'>Post</button>
+               </form>
+           </div> 
+          }
+                  </div> 
+                  )
+              })}
+
+
+
+    
+
+            
           </div>
           <form className='comment-group space-below-25'>
             <h3 className='space-below-10'>Post a Comment</h3>
