@@ -54,9 +54,9 @@ const About = () => {
                             <h3 className='space-below-10'>SEND US A MESSAGE</h3>
                             <label for='Name' className='form-label'>Name </label>
                             <input type='Name' name='Name' className='form-style textbox-style' required/>
-                            <label for='Name' className='form-label'>E-mail </label>
+                            <label for='E-mail' className='form-label'>E-mail </label>
                             <input type='E-mail' name='E-mail' className='form-style textbox-style' required/>
-                            <label for='Name' className='form-label'>Message </label>
+                            <label for='Message' className='form-label'>Message </label>
                             <textarea rows='10' type='Message' name='Message' className='form-style textbox-style' required/>
                             <button className='form-button'>Send</button>
                             <input type="hidden" name="_next" value="https://www.filamfoodblog.com/thanks"></input>

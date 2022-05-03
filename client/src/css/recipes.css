@@ -49,6 +49,19 @@ li {
     margin-bottom: 15px;
 }
 
+.comment-box {
+    padding-top: 25px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 15px;
+}
+
+.small-text {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
 .ingredients-container {
     background-color: white;
     box-shadow: 0px 0px 10px rgb(190, 184, 184);
@@ -125,6 +138,13 @@ button:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
+}
+
+.comment-group {
+    background-color: var(--navbar-kulay);
+    padding: 25px;
+    display: flex;
     flex-direction: column;
 }
 

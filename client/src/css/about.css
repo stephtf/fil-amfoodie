@@ -98,13 +98,13 @@ textarea {
         flex-direction: row;
     }
 
-    .form-group {
+    /* .form-group {
         background-color: var(--navbar-kulay);
         padding: 25px;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
-    }
+    } */
 }
 
 @media (min-width: 500px) and (max-width: 800px) {

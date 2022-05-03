@@ -59,8 +59,26 @@ const LumpiangShanghai = () => {
             </ol>
           </div>
         </div>
+
+        <div className='space-above-50'>
+          <div>
+            <h2 className="text-center space-below-25">Comments</h2>
+          </div>
+          <form className='comment-group space-below-25' >
+            <h3 className='space-below-10'>Post a Comment</h3>
+            <label for='Name' className='form-label'>Name </label>
+            <input type='Name' name='Name' className='form-style textbox-style' required/>
+            <label for='Message' className='form-label'>Message </label>
+            <textarea rows='10' type='Message' name='Message' className='form-style textbox-style' required/>
+            <button className='form-button'>Post</button>
+          </form>
+        </div>
       </div>
-      <Appetizers />
+
+  <div className='space-above-50'>
+    <Appetizers />
+  </div>
+
       <Footer />
     </div>
   );
