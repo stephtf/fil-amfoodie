@@ -34,7 +34,7 @@ const commentSchema = new Schema({
 );
 
 commentSchema 
-  .virtual('commentCount')
+  .virtual('repliesCount')
   .get(function () {
     return `${this.replies.length}`;
   })

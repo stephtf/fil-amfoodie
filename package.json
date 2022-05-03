@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/stephtf/the-fil-am-food-blog#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express-sslify": "^1.2.0"
   }
-  
 }

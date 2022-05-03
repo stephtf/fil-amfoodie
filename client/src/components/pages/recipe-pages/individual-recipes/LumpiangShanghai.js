@@ -3,13 +3,12 @@ import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
 import { useState } from 'react';
-// import { useMutation } from '@apollo/client';
-// import { ADD_COMMENT } from "../../../../utils/mutations";
 
 const LumpiangShanghai = () => {
 
   // adding new data to formData state
   const [formData, setFormData] = useState({
+    recipe: 'Chicken Adobo',
     name: '',
     message: '',
   });
@@ -26,35 +25,26 @@ const LumpiangShanghai = () => {
   }  
 
   // adding new formdata to the database
-  // const [ data ] = useMutation(ADD_COMMENT) 
 
   const handleFormSubmit = (event) => {
     event.preventDefault(); 
     console.log(formData);
 
-    // try {
-    //   const { data } = await addComment({
-    //     variables: { ...formData }, 
-    //   })
-    //   console.log(formData); 
-    // } catch (err) {
-    //   console.error(err);
-    // }
-
+    fetch('http://localhost:3001/comments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(formData)
+    })
+      .then((res) => res.json())
+      .then((newComment) => {
+        console.log(newComment);
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
-    // try {
-    //   const { data } = await addComment({
-    //     variables: { ...formData },
-    //   })
-    //   console.log(data);
-    // } catch (err) {
-    //   console.error(err);
-    // }
-
-    // setFormData({
-    //   name: '',
-    //   message: '',
-    // });
   
 
   return (
