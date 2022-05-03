@@ -27,15 +27,13 @@ const About = () => {
             <div className='body-container about-row-2'>
                 <img src={kawasan} className='about-image-2' alt='Gian and Steph walking to Kawasan Falls in Cebu,Philippines' /> 
                 <div>
+                    <p className='about-paras'>
+                        We both agree that the best part of traveling is getting to taste the local cuisine. Sightseeing is cool and all, but we're always more excited about the restaurants and experiencing new flavors. The way we cook at home is kind of a mixture of influences from our families and travels. 
+                    </p>
                 <p className='about-paras'>
-                   Our other shared hobbies include tennis, pickleball, and going on walks with our two bichons. We're always looking for ways to burn off the calories and stay fit! 
+                   Our other shared hobbies include tennis, pickleball, and going on walks with our two bichons. We're always looking for ways to burn off the calories and stay fit! </p>
 
-                   Steph also enjoys making YouTube videos, and sharing food, travel, and a glimpse of our lives on her channel. Visit <a href='https://www.youtube.com/stephf' target='_blank' rel='noreferrer'>youtube.com/stephf</a> to check it out!
-                </p>
 
-                <p className='about-paras'>
-                    While Steph is the more creative one, Gian is really good at math. We know, Asian stereotype. But he actually is good at it! He enjoys solving problems, and has recently gotten into playing the board game Catan. He's also super good at Scrabble.
-                </p>
 
                 <p className='about-paras'>
                   Okay, enough about us. We'd love to hear from you! Feel free to reach out if you have any questions about our recipes, our blog, or if you have any suggestions for what we should put out next. 

@@ -5,7 +5,6 @@ const Dessert = () => {
         <div className='body-container recipes-space'>
             <GrahamCard />
         </div>
-
     )
 }
 
