@@ -2,8 +2,61 @@ import Footer from "../../../header/Footer";
 import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
+import { useState } from 'react';
+// import { useMutation } from '@apollo/client';
+// import { ADD_COMMENT } from "../../../../utils/mutations";
 
 const LumpiangShanghai = () => {
+
+  // adding new data to formData state
+  const [formData, setFormData] = useState({
+    name: '',
+    message: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target 
+
+    setFormData(prevData => {
+      return {
+        ...prevData, 
+        [name]: value
+      }
+    })
+  }  
+
+  // adding new formdata to the database
+  // const [ data ] = useMutation(ADD_COMMENT) 
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); 
+    console.log(formData);
+
+    // try {
+    //   const { data } = await addComment({
+    //     variables: { ...formData }, 
+    //   })
+    //   console.log(formData); 
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
+  }
+    // try {
+    //   const { data } = await addComment({
+    //     variables: { ...formData },
+    //   })
+    //   console.log(data);
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
+    // setFormData({
+    //   name: '',
+    //   message: '',
+    // });
+  
+
   return (
     <div>
       <Header />
@@ -64,13 +117,13 @@ const LumpiangShanghai = () => {
           <div>
             <h2 className="text-center space-below-25">Comments</h2>
           </div>
-          <form className='comment-group space-below-25' >
+          <form className='comment-group space-below-25'>
             <h3 className='space-below-10'>Post a Comment</h3>
-            <label for='Name' className='form-label'>Name </label>
-            <input type='Name' name='Name' className='form-style textbox-style' required/>
-            <label for='Message' className='form-label'>Message </label>
-            <textarea rows='10' type='Message' name='Message' className='form-style textbox-style' required/>
-            <button className='form-button'>Post</button>
+            <label htmlFor='name' className='form-label'>Name </label>
+            <input onChange={handleChange} type='name' value={formData.name} name='name' className='form-style textbox-style' required/>
+            <label htmlFor='message' className='form-label'>Message </label>
+            <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
+            <button onClick={handleFormSubmit} className='form-button'>Post</button>
           </form>
         </div>
       </div>

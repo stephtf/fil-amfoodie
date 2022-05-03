@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import About from './components/pages/About';
 import Home from './components/pages/Home';
 import RecipeNav from './components/pages/RecipeNav';
@@ -9,11 +10,16 @@ import CalamansiCocktail from './components/pages/recipe-pages/individual-recipe
 import Graham from './components/pages/recipe-pages/individual-recipes/Graham';
 import Thanks from './components/pages/Thanks';
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 export default function App() {
  
 return (
   <div>
+  <ApolloProvider client={client}>
   <Router> 
       <Routes>
         <Route path='/' element={<Home />} />
@@ -29,6 +35,7 @@ return (
 
       </Routes>
     </Router>
+    </ApolloProvider>
   </div>
 )
 };

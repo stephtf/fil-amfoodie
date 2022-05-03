@@ -2,11 +2,34 @@ import Header from "../../../header/Header";
 import Ulam from "../Ulam";
 import adobo from '../recipe-photos/adobo.jpg';
 import Footer from "../../../header/Footer";
+import { useQuery } from '@apollo/client';
+import { QUERY_COMMENTS } from '../../../../utils/queries';
+
 
 const ChickenAdobo = () => {
+
+  const { loading, data } = useQuery(QUERY_COMMENTS);
+  const comments = data.comments || [];
+  if(!comments.length) {
+    return <h3>No comments yet</h3>;
+  }
+
   return (
     <div>
     <Header />
+
+    <div className="flex-row justify-center">
+        <div className="col-12 col-md-10 my-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <div>
+            {comments}
+            </div>
+          )}
+        </div>
+    </div>
+
       <div className='body-container'>
       <h2 className="space-below-10 recipe-titles">Chicken Adobo</h2>
       <h3 className='center-text'>A Filipino staple</h3>
