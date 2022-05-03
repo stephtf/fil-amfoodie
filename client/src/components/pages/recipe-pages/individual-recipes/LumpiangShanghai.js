@@ -8,7 +8,7 @@ const LumpiangShanghai = () => {
 
   // adding new data to formData state
   const [formData, setFormData] = useState({
-    recipe: 'Chicken Adobo',
+    recipe: 'lumpiangshanghai',
     name: '',
     message: '',
   });
@@ -25,7 +25,6 @@ const LumpiangShanghai = () => {
   }  
 
   // adding new formdata to the database
-
   const handleFormSubmit = (event) => {
     event.preventDefault(); 
     console.log(formData);
@@ -40,11 +39,34 @@ const LumpiangShanghai = () => {
       .then((res) => res.json())
       .then((newComment) => {
         console.log(newComment);
+        window.location.reload();
       })
       .catch(err => {
         console.error(err);
       })
   }
+
+  // const [commentData, setCommentData] = useState([]);
+  // useEffect(() => {
+    
+  //   })
+
+    fetch('http://localhost:3001/comments/Chicken Adobo', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(),
+    })
+      .then((res) => res.json())
+      .then((comments) => {
+        console.log(comments);
+
+      })
+      .catch(err => {
+        console.error(err);
+      })
+
   
 
   return (
