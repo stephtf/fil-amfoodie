@@ -3,6 +3,7 @@ import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
 import { useState, useEffect } from 'react';
+import Replies from "../../Replies";
 
 const LumpiangShanghai = () => {
 
@@ -66,28 +67,64 @@ const LumpiangShanghai = () => {
       })
     }, []);
 
-  const [replyForm, setReplyForm] = useState(false);
-  const handleReply = () => setReplyForm(replyForm => !replyForm); 
-  // const replyId = document.getElementById('replyId');
+  // const hideButton = document.getElementsByClassName('hide-button');
+  // console.log(hideButton);
+  // for(let i=0; i<hideButton.length;i++){
+  //   let mybutton = hideButton[i];
+  //     mybutton.style.display = 'none';
+  // }
 
-    useEffect(() => {
-     setReplyForm(false);
-    //  console.log(replyId);
-    //  const replyIdValue = replyId.value;
-    //  console.log(replyIdValue)
-    }, [])
+  const [replyForm, setReplyForm] = useState('');
+  const handleReply = (id) => {
+    setReplyForm(id); 
+    const replyButton = document.getElementById(`${id}`);
+    replyButton.style.display = 'none';
+    const hideButton = document.getElementsByClassName('hide-button');
 
-    const replyFormdiv = document.getElementsByClassName('replyform-container')[0];
-
-    if(replyForm ) {
-      if(replyFormdiv) {
-        replyFormdiv.style.display = 'none'; 
-      }
-    } else {
-      if(replyFormdiv) {
-        replyFormdiv.style.display = 'block';
+    for(let i=0; i<hideButton.length;i++){
+      let mybutton = hideButton[i];
+      if (mybutton.value === id){
+        mybutton.style.display = 'block';
       }
     }
+  }
+
+  const handleHide = (id) => {
+    setReplyForm(''); 
+    const replyButton = document.getElementById(`${id}`);
+    replyButton.style.display = 'block';
+    console.log(document.getElementsByClassName('hide-button'));
+    const hideButton = document.getElementsByClassName('hide-button');
+    for(let i=0; i<hideButton.length;i++){
+      let mybutton = hideButton[i];
+      if (mybutton.value === id){
+        mybutton.style.display = 'none';
+      }
+    }
+  }
+  // const replyId = document.getElementsByClassName('reply-button');
+  // console.log(replyId);
+
+    // useEffect(() => {
+    //   const replyButton = document.getElementsByClassName('reply-button');
+    //   replyButton.style.display = 'block';
+
+    // //  console.log(replyId);
+    // //  const replyIdValue = replyId.value;
+    // //  console.log(replyIdValue)
+    // }, [replyForm])
+
+    // const replyFormdiv = document.getElementsByClassName('replyform-container')[0];
+
+    // if(replyForm ) {
+    //   if(replyFormdiv) {
+    //     replyFormdiv.style.display = 'none'; 
+    //   }
+    // } else {
+    //   if(replyFormdiv) {
+    //     replyFormdiv.style.display = 'block';
+    //   }
+    // }
 
 
   
@@ -151,18 +188,36 @@ const LumpiangShanghai = () => {
         <div className='space-above-50'>
           <div>
             <h2 className="text-center space-below-25">Comments</h2>
+            <form className='comment-group space-below-25'>
+              <h3 className='space-below-10'>Post a Comment</h3>
+              <label htmlFor='name' className='form-label'>Name </label>
+              <input onChange={handleChange} type='name' value={formData.name} name='name' className='form-style textbox-style' required/>
+              <label htmlFor='message' className='form-label'>Message </label>
+              <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
+              <button onClick={handleFormSubmit} className='form-button'>Post</button>
+            </form>
               {commentData && commentData.map((comment) => {
                 return (
                   <div className='comment-box' key={comment._id}>
+                    <div className='subcomment-box'>
                     <h5>{comment.name}</h5>
                     <small>{comment.timestamp}</small>
                     <p>{comment.message}</p>
-                    <button className='reply-button' onClick={handleReply} id='replyId' value={comment._id}>Reply</button>
+                    <button className='reply-button' onClick={()=>handleReply(`${comment._id}`)} id={comment._id}>Reply</button>
+                    <button className='hide-button' onClick={()=>handleHide(`${comment._id}`)} value={comment._id} style={{display:'none'}} >Cancel Reply</button>
                     <p>{comment.replies}</p>
-                    {comment.replies > 0? 
-                    <button className='reply-button' onClick={handleReply}>Reply</button> : <div></div>}
-          { replyForm && 
-           <div className='replyform-container'>
+                    {/* {comment.replies > 0? 
+                    <button className='reply-button' onClick={handleReply}>Reply</button> : <div></div>} */}
+                    </div>
+          { replyForm === `${comment._id}` && 
+              <Replies />
+          }
+                  </div> 
+                  )
+              })}
+
+{/* 
+<div className='replyform-container'>
            <form className='comment-group space-below-25'>
                  <h3 className='space-below-10'>Post a Reply</h3>
                  <label htmlFor='name' className='form-label'>Name </label>
@@ -171,26 +226,12 @@ const LumpiangShanghai = () => {
                  <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
                  <button onClick={handleFormSubmit} className='form-button'>Post</button>
                </form>
-           </div> 
-          }
-                  </div> 
-                  )
-              })}
-
-
-
+           </div>  */}
     
 
             
           </div>
-          <form className='comment-group space-below-25'>
-            <h3 className='space-below-10'>Post a Comment</h3>
-            <label htmlFor='name' className='form-label'>Name </label>
-            <input onChange={handleChange} type='name' value={formData.name} name='name' className='form-style textbox-style' required/>
-            <label htmlFor='message' className='form-label'>Message </label>
-            <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
-            <button onClick={handleFormSubmit} className='form-button'>Post</button>
-          </form>
+          
         </div>
       </div>
 

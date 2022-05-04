@@ -122,11 +122,19 @@ button {
 
 button:hover {
     cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24), 0 2px 4px 0 rgba(0,0,0,0.19);
 }
 
 .reply-button {
-    width: 50px;
+    width: 100px;
     border-radius: 7px;
+    margin-top: 25px;
+}
+
+.hide-button {
+    width: 100px;
+    border-radius: 7px;
+    margin-top: 25px;
 }
 
 .recipe-titles {
@@ -151,8 +159,20 @@ button:hover {
     flex-direction: column;
 }
 
+.reply-group {
+    background-color: #f1e6d8;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
 .comment-box {
     background-color: var(--navbar-kulay);
+}
+
+.subcomment-box {
+    padding: 15px;
 }
 
 @media screen and (min-width: 800px) {
