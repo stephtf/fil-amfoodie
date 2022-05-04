@@ -125,17 +125,54 @@ button:hover {
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24), 0 2px 4px 0 rgba(0,0,0,0.19);
 }
 
-.reply-button {
-    width: 100px;
-    border-radius: 7px;
-    margin-top: 25px;
+.newcomment-button {
+    background-color:rgb(190, 184, 184);
 }
 
-.hide-button {
-    width: 100px;
-    border-radius: 7px;
+.reply-button {
+    font-size: 15px;
     margin-top: 25px;
+    margin-right: 30px;
+    font-weight: bold;
+    text-shadow: 0px 0px 1px gray;
+    text-align: right;
 }
+
+.reply-button:hover {
+    cursor: pointer;
+}
+
+.cancel-button {
+    width: 75px;
+    padding: 7px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.reply-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.post-button {
+    width: 75px;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: var(--pinoy-blue);
+    color: white;
+}
+
+#post-title {
+    text-shadow: 0px 1px 1px rgb(139, 121, 121);
+}
+
+#post-title:hover {
+    color: var(--pinoy-blue);
+    cursor: pointer;
+}
+
+
 
 .recipe-titles {
     padding-top: 20px;
@@ -152,12 +189,14 @@ button:hover {
     flex-direction: column;
 }
 
+/* comments and replies */
 .comment-group {
     background-color: var(--navbar-kulay);
     padding: 25px;
     display: flex;
     flex-direction: column;
 }
+
 
 .reply-group {
     background-color: #f1e6d8;
@@ -167,13 +206,37 @@ button:hover {
     border-radius: 5px;
 }
 
+.newcomment-text {
+    margin-bottom: 18px;
+    /* color: var(--pinoy-blue); */
+}
+
+.newcomment-box {
+    background-color: #f1e6d8;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
 .comment-box {
     background-color: var(--navbar-kulay);
+    margin-top: 20px;
 }
 
 .subcomment-box {
     padding: 15px;
 }
+
+.comment-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+
+
 
 @media screen and (min-width: 800px) {
     .recipelink-styles {

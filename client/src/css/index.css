@@ -69,12 +69,16 @@ h2 {
   margin-bottom: 25px;
 }
 
+.space-below-75 {
+  margin-bottom: 75px;
+}
+
 .space-above-25 {
   margin-top: 25px;
 }
 
-.space-above-50 {
-  margin-top: 50px;
+.space-above-75 {
+  margin-top: 75px;
 }
 
 .center-text {
