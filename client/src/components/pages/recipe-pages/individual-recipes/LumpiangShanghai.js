@@ -2,192 +2,153 @@ import Footer from "../../../header/Footer";
 import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
-import { useState, useEffect } from 'react';
-// import Replies from "../../Replies";
+import { useState, useEffect } from "react";
 
 const LumpiangShanghai = () => {
+  const recipeName = "lumpiangshanghai";
 
-  const recipeName = 'lumpiangshanghai';
-
-  // adding new data to formData state
+  // adding new comment data to formData state
   const [formData, setFormData] = useState({
     recipe: `${recipeName}`,
-    name: '',
-    message: '',
-    replies: [
-      {
-        name: '',
-        replyMessage: '',
-      }
-    ]
+    name: "",
+    message: "",
   });
 
   const handleChange = (event) => {
-    const { name, value } = event.target 
+    const { name, value } = event.target;
 
-    setFormData(prevData => {
+    setFormData((prevData) => {
       return {
-        ...prevData, 
-        [name]: value
-      }
-    })
-  }  
+        ...prevData,
+        [name]: value,
+      };
+    });
+  };
 
   // adding new formdata to the database
   const handleFormSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     console.log(formData);
 
-    fetch('http://localhost:3001/comments', {
-      method: 'POST',
+    fetch("http://localhost:3001/comments", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-      }, 
-      body: JSON.stringify(formData)
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     })
       .then((res) => res.json())
       .then((newComment) => {
         console.log(newComment);
         window.location.reload();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
-      })
-  }
+      });
+  };
 
+  // show/hide comment form upon user click
   const handleNewComment = () => {
-    const commentForm = document.getElementById('show-comment');
-    commentForm.style.display = 'block';
-  }
+    const commentForm = document.getElementById("show-comment");
+    commentForm.style.display = "block";
+  };
 
   const hideNewComment = () => {
-    const commentForm = document.getElementById('show-comment');
-    commentForm.style.display = 'none';
-  }
+    const commentForm = document.getElementById("show-comment");
+    commentForm.style.display = "none";
+  };
 
-// posting a new reply to other user's comment 
+  // replies - save reply form data to state
+  const [replyData, setReplyData] = useState({
+    replies: {
+      name: "",
+      replyMessage: "",
+    },
+  });
 
-  // const [replyData, setReplyData] = useState({
-  //   recipe: `${recipeName}`,
-  //   name: '',
-  //   message: '',
-    
-  // });
+  const handleReplyChange = (event) => {
+    const { name, value } = event.target;
 
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target 
+    setReplyData((prevData) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+  };
 
-  //   setFormData(prevData => {
-  //     return {
-  //       ...prevData, 
-  //       [name]: value
-  //     }
-  //   })
-  // }  
 
   const handleReplyPost = (event) => {
-    event.preventDefault(); 
-    console.log(formData);
+    event.preventDefault();
+    console.log(replyData);
+    const postReplyButton = document.getElementById('post-reply-button');
+    const commentId = postReplyButton.value; 
+    console.log(commentId);
 
-    fetch('http://localhost:3001/replies/${id}', {
-      method: 'POST',
+    fetch(`http://localhost:3001/replies/${commentId}`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-      }, 
-      body: JSON.stringify(formData)
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(replyData),
     })
       .then((res) => res.json())
-      .then((newComment) => {
-        console.log(newComment);
+      .then((newReply) => {
+        console.log(newReply);
         window.location.reload();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
-      })
-  }
+      });
+  };
 
-  // fetching the data from the database to display comments  
+  // fetching the data from the database to display comments
   const [commentData, setCommentData] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3001/comments/${recipeName}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-      }, 
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(),
     })
       .then((res) => res.json())
       .then((comments) => {
-          setCommentData(comments.reverse());
+        setCommentData(comments.reverse());
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
-      })
-    }, []);
+      });
+  }, []);
 
-  // const hideButton = document.getElementsByClassName('hide-button');
-  // console.log(hideButton);
-  // for(let i=0; i<hideButton.length;i++){
-  //   let mybutton = hideButton[i];
-  //     mybutton.style.display = 'none';
-  // }
-
-
-
-  const [replyForm, setReplyForm] = useState('');
+  const [replyForm, setReplyForm] = useState("");
   const handleReply = (id) => {
-    setReplyForm(id); 
+    setReplyForm(id);
     const replyButton = document.getElementById(`${id}`);
-    replyButton.style.display = 'none';
-    const hideButton = document.getElementsByClassName('cancel-button');
+    replyButton.style.display = "none";
+    const hideButton = document.getElementsByClassName("cancel-button");
 
-    for(let i=0; i<hideButton.length;i++){
+    for (let i = 0; i < hideButton.length; i++) {
       let mybutton = hideButton[i];
-      if (mybutton.value === id){
-        mybutton.style.display = 'block';
+      if (mybutton.value === id) {
+        mybutton.style.display = "block";
       }
     }
-  }
+  };
 
   const handleHide = (id) => {
-    setReplyForm(''); 
+    setReplyForm("");
     const replyButton = document.getElementById(`${id}`);
-    replyButton.style.display = 'block';
-    console.log(document.getElementsByClassName('cancel-button'));
-    const hideButton = document.getElementsByClassName('hide-button');
-    for(let i=0; i<hideButton.length;i++){
+    replyButton.style.display = "block";
+    console.log(document.getElementsByClassName("cancel-button"));
+    const hideButton = document.getElementsByClassName("hide-button");
+    for (let i = 0; i < hideButton.length; i++) {
       let mybutton = hideButton[i];
-      if (mybutton.value === id){
-        mybutton.style.display = 'none';
+      if (mybutton.value === id) {
+        mybutton.style.display = "none";
       }
     }
-  }
-  // const replyId = document.getElementsByClassName('reply-button');
-  // console.log(replyId);
-
-    // useEffect(() => {
-    //   const replyButton = document.getElementsByClassName('reply-button');
-    //   replyButton.style.display = 'block';
-
-    // //  console.log(replyId);
-    // //  const replyIdValue = replyId.value;
-    // //  console.log(replyIdValue)
-    // }, [replyForm])
-
-    // const replyFormdiv = document.getElementsByClassName('replyform-container')[0];
-
-    // if(replyForm ) {
-    //   if(replyFormdiv) {
-    //     replyFormdiv.style.display = 'none'; 
-    //   }
-    // } else {
-    //   if(replyFormdiv) {
-    //     replyFormdiv.style.display = 'block';
-    //   }
-    // }
-
-
-  
+  };
 
   return (
     <div>
@@ -220,105 +181,170 @@ const LumpiangShanghai = () => {
             </ul>
             <h4 className="space-above-25">Instructions</h4>
             <ol className="instruction-list">
-              <li>Prep your spring roll wrapper by peeling each individual sheet. Set aside
+              <li>
+                Prep your spring roll wrapper by peeling each individual sheet.
+                Set aside
               </li>
               <li>
-                Prepare your vegetables. Mince the onions, shred the carrots. Or, you could just buy already shredded carrots, which is what we do! Then chop up your cilantro.
+                Prepare your vegetables. Mince the onions, shred the carrots.
+                Or, you could just buy already shredded carrots, which is what
+                we do! Then chop up your cilantro.
               </li>
               <li>
-                To a large mixing bowl, add the veggies with the raw ground pork, raw ground beef, spices, and optional Worcestershire. Mix well until all ingredients are evenly distributed. 
+                To a large mixing bowl, add the veggies with the raw ground
+                pork, raw ground beef, spices, and optional Worcestershire. Mix
+                well until all ingredients are evenly distributed.
               </li>
               <li>
-                Now you're ready to start wrapping. Take one spring roll wrapper and add one spoonful of the meat mixture to the bottom edge. Spread the meat mixture evenly across the wrapper, and then roll tightly until you have about one inch of wrapper left. At this point, take some raw scrambled egg with your fingers and spread it across the wrapper and continue to roll and seal it. The lumpia will be long and have open edges.  
+                Now you're ready to start wrapping. Take one spring roll wrapper
+                and add one spoonful of the meat mixture to the bottom edge.
+                Spread the meat mixture evenly across the wrapper, and then roll
+                tightly until you have about one inch of wrapper left. At this
+                point, take some raw scrambled egg with your fingers and spread
+                it across the wrapper and continue to roll and seal it. The
+                lumpia will be long and have open edges.
               </li>
               <li>
-                Take some kitchen shears and cut the long lumpia into thirds. This will allow for easier frying and eating! 
+                Take some kitchen shears and cut the long lumpia into thirds.
+                This will allow for easier frying and eating!
               </li>
               <li>
-                Continue to roll the rest of the meat mixture until you run out of wrapper! 
+                Continue to roll the rest of the meat mixture until you run out
+                of wrapper!
               </li>
-              <li>Once you are done with wrapping, now it's time to deep fry. Get your favorite deep frying pan and fill it until one eggroll will be fully submerged. It's okay to eyeball this step.
+              <li>
+                Once you are done with wrapping, now it's time to deep fry. Get
+                your favorite deep frying pan and fill it until one eggroll will
+                be fully submerged. It's okay to eyeball this step.
               </li>
-              <li>When the oil is heated (keep it on medium heat), throw in the lumpia and cook until golden brown.
+              <li>
+                When the oil is heated (keep it on medium heat), throw in the
+                lumpia and cook until golden brown.
               </li>
             </ol>
           </div>
         </div>
 
-        <div className='space-above-50'>
+        <div className="space-above-50">
           <div>
             <h2 className="text-center space-below-25">Comments</h2>
-            <h3 className='comment-group' id='post-title' onClick={handleNewComment}>Post a Comment</h3>
-            <form className='comment-group' id='show-comment' style={{display: "none"}}>
-              <div className='newcomment-box'>
-                {/* <h3 className='newcomment-text'>We would love to hear from you!</h3> */}
-              <label htmlFor='name' className='form-label'>Name </label>
-              <input onChange={handleChange} type='name' value={formData.name} name='name' className='form-style textbox-style' required/>
-              <label htmlFor='message' className='form-label'>Message </label>
-              <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
-              <div className='reply-buttons'>
-              <button type ='button' className='cancel-button' onClick={hideNewComment}>Cancel</button>
-              <button className='post-button' onSubmit={handleFormSubmit}>Post</button>
-              </div>
+            <h3
+              className="comment-group"
+              id="post-title"
+              onClick={handleNewComment}
+            >
+              Post a Comment
+            </h3>
+            <form
+              className="comment-group"
+              id="show-comment"
+              style={{ display: "none" }}
+            >
+              <div className="newcomment-box">
+                <label htmlFor="name" className="form-label">
+                  Name{" "}
+                </label>
+                <input
+                  onChange={handleChange}
+                  type="name"
+                  value={formData.name}
+                  name="name"
+                  className="form-style textbox-style"
+                  required
+                />
+                <label htmlFor="message" className="form-label">
+                  Message{" "}
+                </label>
+                <textarea
+                  onChange={handleChange}
+                  rows="5"
+                  type="message"
+                  value={formData.message}
+                  name="message"
+                  className="form-style textbox-style"
+                  required
+                />
+                <div className="reply-buttons">
+                  <button
+                    type="button"
+                    className="cancel-button"
+                    onClick={hideNewComment}
+                  >
+                    Cancel
+                  </button>
+                  <button className="post-button" onSubmit={handleFormSubmit}>
+                    Post
+                  </button>
+                </div>
               </div>
             </form>
-              {commentData && commentData.map((comment) => {
+            {commentData &&
+              commentData.map((comment) => {
                 return (
-                  <div className='comment-box' key={comment._id}>
-                    <div className='subcomment-box'>
-                    <h5 className='comment-name'>{comment.name}</h5>
-                    <small>{comment.timestamp}</small>
-                    <p className='comment-message'>{comment.message}</p>
-               
-                    <div className='reply-button' onClick={()=>handleReply(`${comment._id}`)} id={comment._id}>Reply</div>
-                    
-                    <p>{comment.replies}</p>
-                    {/* {comment.replies > 0? 
-                    <button className='reply-button' onClick={handleReply}>Reply</button> : <div></div>} */}
-                    </div>
-          { replyForm === `${comment._id}` && 
-          
-             
-                <form className='reply-group space-below-25'>
-                      <h3 className='space-below-10'>Post a Reply</h3>
-                      <label htmlFor='name' className='form-label'>Name </label>
-                      <input type='name' name='replies.name' className='form-style textbox-style' onChange={handleChange} required/>
-                      <label htmlFor='message' className='form-label'>Message </label>
-                      <textarea rows='4' type='message' name='replies.replyMessage' className='form-style textbox-style' onChange={handleChange} required/>
-                      <div className='reply-buttons'>
-                        <button className='cancel-button' onClick={()=>handleHide(`${comment._id}`)} value={comment._id}  >Cancel</button>
-                        <button className='post-button' onClick={handleReplyPost(`${comment._id}`)}>Post</button>
+                  <div className="comment-box" key={comment._id}>
+                    <div className="subcomment-box">
+                      <h5 className="comment-name">{comment.name}</h5>
+                      <small>{comment.timestamp}</small>
+                      <p className="comment-message">{comment.message}</p>
+
+                      <div
+                        className="reply-button"
+                        onClick={() => handleReply(`${comment._id}`)}
+                        id={comment._id}
+                      >
+                        Reply
                       </div>
-                  
-                </form>
-       
-          }
-                  </div> 
-                  )
+
+                      <p></p>
+                    </div>
+                    {replyForm === `${comment._id}` && (
+                      <form className="reply-group space-below-25">
+                        <h3 className="space-below-10">Post a Reply</h3>
+                        <label htmlFor="name" className="form-label">
+                          Name{" "}
+                        </label>
+                        <input
+                          type="name"
+                          name="name"
+                          className="form-style textbox-style"
+                          onChange={handleReplyChange}
+                          required
+                        />
+                        <label htmlFor="message" className="form-label">
+                          Message{" "}
+                        </label>
+                        <textarea
+                          rows="4"
+                          type="message"
+                          name="replyMessage"
+                          className="form-style textbox-style"
+                          onChange={handleReplyChange}
+                          required
+                        />
+                        <div className="reply-buttons">
+                          <button
+                            className="cancel-button"
+                            onClick={() => handleHide(`${comment._id}`)}
+                            value={comment._id}
+                          >
+                            Cancel
+                          </button>
+                          <button className="post-button" id='post-reply-button' value={comment._id} onClick={handleReplyPost}>Post</button>
+                        </div>
+                      </form>
+                    )}
+                  </div>
+                );
               })}
-
-{/* 
-<div className='replyform-container'>
-           <form className='comment-group space-below-25'>
-                 <h3 className='space-below-10'>Post a Reply</h3>
-                 <label htmlFor='name' className='form-label'>Name </label>
-                 <input onChange={handleChange} type='name' value={formData.name} name='name' className='form-style textbox-style' required/>
-                 <label htmlFor='message' className='form-label'>Message </label>
-                 <textarea onChange={handleChange} rows='5' type='message' value={formData.message} name='message' className='form-style textbox-style' required/>
-                 <button onClick={handleFormSubmit} className='form-button'>Post</button>
-               </form>
-           </div>  */}
-    
-
-            
           </div>
-          
         </div>
       </div>
-  <h2 className='text-center space-above-75'>Check out these other appetizers!</h2>
-  <div className='space-above-10'>
-    <Appetizers />
-  </div>
+      <h2 className="text-center space-above-75 space-below-25">
+        Check out these other appetizers!
+      </h2>
+      <div className="space-above-10">
+        <Appetizers />
+      </div>
 
       <Footer />
     </div>
