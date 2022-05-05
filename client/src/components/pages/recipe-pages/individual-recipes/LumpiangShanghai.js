@@ -104,6 +104,8 @@ const LumpiangShanghai = () => {
 
   // fetching the data from the database to display comments
   const [commentData, setCommentData] = useState([]);
+  const [replyMessages, setReplyMessages] = useState([]);
+  console.log(replyMessages);
   useEffect(() => {
     fetch(`http://localhost:3001/comments/${recipeName}`, {
       method: "GET",
@@ -117,17 +119,24 @@ const LumpiangShanghai = () => {
         setCommentData(comments.reverse());
         console.log(comments);
 
-        let replyArray = []
+        // let replyArray = []
         for(let i = 0; i < comments.length; i++) {
-          let commentReplies = comments[i].replies;
+          const commentReplies = comments[i].replies;
+        
+          // replyArray.push({...commentReplies});
+          // console.log(replyArray);
           // let replyNameArr = [];    
           // let replyMessageArr = [];
           // let replyTimestampArr = [];  
           // commentReplies gives me the [replies] array 
-          console.log(commentReplies);
+          // console.log(commentReplies);
           for(let j=0; j<commentReplies.length; j++) {
-            const replyName = commentReplies[j].name;
-            replyArray.push(replyName);
+            const oneReply = commentReplies[i];
+            console.log(oneReply)
+            setReplyMessages(commentReplies);
+            // const replyName = commentReplies[j].name;
+            // replyArray.push(replyName);
+            // console.log(replyArray);
             // const replyTimestamp = commentReplies[j].timestamp;
             // const replyMessage = commentReplies[j].replyMessage;
             // replyNameArr.push(replyName);
@@ -309,7 +318,17 @@ const LumpiangShanghai = () => {
                       <div>
                         <h3>REPLIES</h3>
                         <p>reply count: {comment.repliesCount}</p>
-                        <p>name: </p>
+                        {replyMessages && replyMessages.map((replies) => {
+                          return (
+                            <div key={replies._id}>
+                          <p>name: {replies.name}</p>
+                          <p>posted on: {replies.timestamp}</p>
+                          <p>message: {replies.replyMessage}</p>
+                         
+                          </div>
+                          )
+                        })}
+                        
                 {/* {replyArray !== 0 ? <p>{replyArray}</p> : <p></p>} */}
            {/* <p>{commentReplies.timestamp}</p>
            <p>{commentReplies.replyMessage}</p>   */}
