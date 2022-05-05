@@ -3,6 +3,7 @@ import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
 import { useState, useEffect } from "react";
+import moment from 'moment';
 
 const LumpiangShanghai = () => {
   const recipeName = "lumpiangshanghai";
@@ -104,8 +105,8 @@ const LumpiangShanghai = () => {
 
   // fetching the data from the database to display comments
   const [commentData, setCommentData] = useState([]);
-  const [replyMessages, setReplyMessages] = useState([]);
-  // console.log(replyMessages);
+  const [timeStamp, setTimestamp] = useState([]);
+  console.log(timeStamp);
   useEffect(() => {
     fetch(`http://localhost:3001/comments/${recipeName}`, {
       method: "GET",
@@ -117,26 +118,56 @@ const LumpiangShanghai = () => {
       .then((res) => res.json())
       .then((comments) => {
         setCommentData(comments.reverse());
-        
-        // console.log(comments);
 
-        let replyArray = []
-        
-        for(let i = 0; i < comments.length; i++) {
-          const commentReplies = comments[i].replies;
-          // console.log(commentReplies)
-   
-          for(let j=0; j<commentReplies.length; j++) {
-            const oneReply = commentReplies[j];
-            // console.log(oneReply);
-            replyArray.push(oneReply);
+        let timestampArray = [];
+
+        for (let i = 0; i < comments.length; i++) {
+          // use moment.js to format the time with .fromNow
+          const postDate = moment().format(comments[i].timestamp);
+          let postDateValues = postDate.split("-");
+          if (postDateValues[2]) {
+            let othervalue = postDateValues[2].split("T");
+            postDateValues[2] = othervalue[0];
+            postDateValues.unshift();
           }
-          
 
-
+          let nowTime = moment().format("YYYY-MM-DD");
+          let fromNowValues = nowTime.split("-");
+          console.log(moment(postDateValues).from(moment(fromNowValues)));
+          timestampArray.push(
+            moment(postDateValues).from(moment(fromNowValues))
+          );
+          console.log(timestampArray);
+          setTimestamp([...timestampArray].reverse());
           
         }
-        setReplyMessages(replyArray);
+  
+
+
+      //   let timestampArray = [];
+        
+      // //  format timestamp 
+      // for (let i = 0; i < comments.length; i++) {
+      //   const commentTime = moment().format(comments[i].timestamp);
+      //   let commentTimeValue = commentTime.split("-");
+      //   if(commentTimeValue[2]) {
+      //     let newValue = commentTimeValue[2].split("T");
+      //     commentTimeValue[2] = newValue[0];
+      //     commentTimeValue.pop();
+      //   } 
+
+      //   let nowTime = moment().format("YYYY-MM-DD");
+      //   let fromNowValues = nowTime.split("-");
+      //   console.log(moment(commentTimeValue).from(moment(fromNowValues)));
+      //   timestampArray.push(
+      //     moment(commentTimeValue).from(moment(fromNowValues))
+      //   );
+      //   setTimestamp([...timestampArray].reverse());
+      // }
+     
+
+
+ 
       })
       .catch((err) => {
         console.error(err);
@@ -306,7 +337,16 @@ const LumpiangShanghai = () => {
                   <div className="comment-box" key={comment._id}>
                     <div className="subcomment-box">
                       <h5 className="comment-name">{comment.name}</h5>
+                     
+                      {timeStamp.map((time) => {
+                        return (
+                          <div>
+                            <small>{time}</small>
+                          </div>
+                        )
+                      })}
                       <small>{comment.timestamp}</small>
+                     
                       <p className="comment-message">{comment.message}</p>
                       <div
                         className="reply-button"
@@ -358,8 +398,16 @@ const LumpiangShanghai = () => {
                         
                         {comment.replies.map((replies) => {
                           return (
-                            <div key={comment._id} className='subcomment-box'>
+                            <div key={replies._id} className='subcomment-box'>
                               <h5 className='comment-name'>{replies.name}</h5>
+
+                              {/* {timeStamp.reduce((time) => {
+                                    return (
+                                      <div>
+                                        <small>{time}</small>
+                                      </div>
+                                    )
+                                  })} */}
                               <small>{replies.timestamp}</small>
                               <p className='comment-message space-below-10'>{replies.replyMessage}</p>
                          
