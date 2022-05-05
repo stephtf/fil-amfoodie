@@ -115,6 +115,29 @@ const LumpiangShanghai = () => {
       .then((res) => res.json())
       .then((comments) => {
         setCommentData(comments.reverse());
+        console.log(comments);
+
+        let replyArray = []
+        for(let i = 0; i < comments.length; i++) {
+          let commentReplies = comments[i].replies;
+          // let replyNameArr = [];    
+          // let replyMessageArr = [];
+          // let replyTimestampArr = [];  
+          // commentReplies gives me the [replies] array 
+          console.log(commentReplies);
+          for(let j=0; j<commentReplies.length; j++) {
+            const replyName = commentReplies[j].name;
+            replyArray.push(replyName);
+            // const replyTimestamp = commentReplies[j].timestamp;
+            // const replyMessage = commentReplies[j].replyMessage;
+            // replyNameArr.push(replyName);
+            // replyTimestampArr.push(replyTimestamp);
+            // replyMessageArr.push(replyMessage);
+          }
+
+
+          
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -283,6 +306,21 @@ const LumpiangShanghai = () => {
                 return (
                   <div className="comment-box" key={comment._id}>
                     <div className="subcomment-box">
+                      <div>
+                        <h3>REPLIES</h3>
+                        <p>reply count: {comment.repliesCount}</p>
+                        <p>name: </p>
+                {/* {replyArray !== 0 ? <p>{replyArray}</p> : <p></p>} */}
+           {/* <p>{commentReplies.timestamp}</p>
+           <p>{commentReplies.replyMessage}</p>   */}
+         
+
+                   
+                        
+                        
+                       
+                      </div>
+                      <hr></hr>
                       <h5 className="comment-name">{comment.name}</h5>
                       <small>{comment.timestamp}</small>
                       <p className="comment-message">{comment.message}</p>
@@ -294,8 +332,6 @@ const LumpiangShanghai = () => {
                       >
                         Reply
                       </div>
-
-                      <p></p>
                     </div>
                     {replyForm === `${comment._id}` && (
                       <form className="reply-group space-below-25">
