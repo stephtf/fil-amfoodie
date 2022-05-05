@@ -28,7 +28,7 @@ const LumpiangShanghai = () => {
   // adding new formdata to the database
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    // console.log(formData);
 
     fetch("http://localhost:3001/comments", {
       method: "POST",
@@ -39,7 +39,7 @@ const LumpiangShanghai = () => {
     })
       .then((res) => res.json())
       .then((newComment) => {
-        console.log(newComment);
+        // console.log(newComment);
         window.location.reload();
       })
       .catch((err) => {
@@ -80,10 +80,10 @@ const LumpiangShanghai = () => {
 
   const handleReplyPost = (event) => {
     event.preventDefault();
-    console.log(replyData);
+    // console.log(replyData);
     const postReplyButton = document.getElementById('post-reply-button');
     const commentId = postReplyButton.value; 
-    console.log(commentId);
+    // console.log(commentId);
 
     fetch(`http://localhost:3001/replies/${commentId}`, {
       method: "POST",
@@ -94,7 +94,7 @@ const LumpiangShanghai = () => {
     })
       .then((res) => res.json())
       .then((newReply) => {
-        console.log(newReply);
+        // console.log(newReply);
         window.location.reload();
       })
       .catch((err) => {
@@ -105,7 +105,7 @@ const LumpiangShanghai = () => {
   // fetching the data from the database to display comments
   const [commentData, setCommentData] = useState([]);
   const [replyMessages, setReplyMessages] = useState([]);
-  console.log(replyMessages);
+  // console.log(replyMessages);
   useEffect(() => {
     fetch(`http://localhost:3001/comments/${recipeName}`, {
       method: "GET",
@@ -117,36 +117,26 @@ const LumpiangShanghai = () => {
       .then((res) => res.json())
       .then((comments) => {
         setCommentData(comments.reverse());
-        console.log(comments);
+        
+        // console.log(comments);
 
         let replyArray = []
-        console.log(replyArray);
+        
         for(let i = 0; i < comments.length; i++) {
           const commentReplies = comments[i].replies;
-        
-          // replyArray.push({...commentReplies});
-          // console.log(replyArray);
-          // let replyNameArr = [];    
-          // let replyMessageArr = [];
-          // let replyTimestampArr = [];  
-          // commentReplies gives me the [replies] array 
-          // console.log(commentReplies);
+          // console.log(commentReplies)
+   
           for(let j=0; j<commentReplies.length; j++) {
-            replyArray.push(commentReplies[j])
-            setReplyMessages([...replyArray].reverse());
-            // const replyName = commentReplies[j].name;
-            // replyArray.push(replyName);
-            // console.log(replyArray);
-            // const replyTimestamp = commentReplies[j].timestamp;
-            // const replyMessage = commentReplies[j].replyMessage;
-            // replyNameArr.push(replyName);
-            // replyTimestampArr.push(replyTimestamp);
-            // replyMessageArr.push(replyMessage);
+            const oneReply = commentReplies[j];
+            // console.log(oneReply);
+            replyArray.push(oneReply);
           }
+          
 
 
           
         }
+        setReplyMessages(replyArray);
       })
       .catch((err) => {
         console.error(err);
@@ -172,7 +162,7 @@ const LumpiangShanghai = () => {
     setReplyForm("");
     const replyButton = document.getElementById(`${id}`);
     replyButton.style.display = "block";
-    console.log(document.getElementsByClassName("cancel-button"));
+    // console.log(document.getElementsByClassName("cancel-button"));
     const hideButton = document.getElementsByClassName("hide-button");
     for (let i = 0; i < hideButton.length; i++) {
       let mybutton = hideButton[i];
@@ -315,12 +305,17 @@ const LumpiangShanghai = () => {
                 return (
                   <div className="comment-box" key={comment._id}>
                     <div className="subcomment-box">
+                      <h5 className="comment-name">{comment.name}</h5>
+                      <small>{comment.timestamp}</small>
+                      <p className="comment-message">{comment.message}</p>
+
+                      <hr></hr>
                       <div>
                         <h3>REPLIES</h3>
                         <p>reply count: {comment.repliesCount}</p>
                         {replyMessages && replyMessages.map((replies) => {
                           return (
-                            <div key={replies._id}>
+                            <div key={replies.id}>
                           <p>name: {replies.name}</p>
                           <p>posted on: {replies.timestamp}</p>
                           <p>message: {replies.replyMessage}</p>
@@ -332,17 +327,9 @@ const LumpiangShanghai = () => {
                 {/* {replyArray !== 0 ? <p>{replyArray}</p> : <p></p>} */}
            {/* <p>{commentReplies.timestamp}</p>
            <p>{commentReplies.replyMessage}</p>   */}
-         
-
-                   
-                        
-                        
-                       
                       </div>
                       <hr></hr>
-                      <h5 className="comment-name">{comment.name}</h5>
-                      <small>{comment.timestamp}</small>
-                      <p className="comment-message">{comment.message}</p>
+
 
                       <div
                         className="reply-button"
