@@ -119,7 +119,8 @@ const LumpiangShanghai = () => {
         setCommentData(comments.reverse());
         console.log(comments);
 
-        // let replyArray = []
+        let replyArray = []
+        console.log(replyArray);
         for(let i = 0; i < comments.length; i++) {
           const commentReplies = comments[i].replies;
         
@@ -131,9 +132,8 @@ const LumpiangShanghai = () => {
           // commentReplies gives me the [replies] array 
           // console.log(commentReplies);
           for(let j=0; j<commentReplies.length; j++) {
-            const oneReply = commentReplies[i];
-            console.log(oneReply)
-            setReplyMessages(commentReplies);
+            replyArray.push(commentReplies[j])
+            setReplyMessages([...replyArray].reverse());
             // const replyName = commentReplies[j].name;
             // replyArray.push(replyName);
             // console.log(replyArray);
