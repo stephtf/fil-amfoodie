@@ -308,29 +308,6 @@ const LumpiangShanghai = () => {
                       <h5 className="comment-name">{comment.name}</h5>
                       <small>{comment.timestamp}</small>
                       <p className="comment-message">{comment.message}</p>
-
-                      <hr></hr>
-                      <div>
-                        <h3>REPLIES</h3>
-                        <p>reply count: {comment.repliesCount}</p>
-                        {replyMessages && replyMessages.map((replies) => {
-                          return (
-                            <div key={replies.id}>
-                          <p>name: {replies.name}</p>
-                          <p>posted on: {replies.timestamp}</p>
-                          <p>message: {replies.replyMessage}</p>
-                         
-                          </div>
-                          )
-                        })}
-                        
-                {/* {replyArray !== 0 ? <p>{replyArray}</p> : <p></p>} */}
-           {/* <p>{commentReplies.timestamp}</p>
-           <p>{commentReplies.replyMessage}</p>   */}
-                      </div>
-                      <hr></hr>
-
-
                       <div
                         className="reply-button"
                         onClick={() => handleReply(`${comment._id}`)}
@@ -375,6 +352,23 @@ const LumpiangShanghai = () => {
                         </div>
                       </form>
                     )}
+                          <hr></hr>
+                      <div className='replies-box'>
+                        {comment.repliesCount > 1 || comment.repliesCount < 1 ? <small className='space-below-10'>{comment.repliesCount} Replies</small> : <small className='space-below-10'>{comment.repliesCount} Reply</small> }
+                        
+                        {comment.replies.map((replies) => {
+                          return (
+                            <div key={comment._id} className='subcomment-box'>
+                              <h5 className='comment-name'>{replies.name}</h5>
+                              <small>{replies.timestamp}</small>
+                              <p className='comment-message space-below-10'>{replies.replyMessage}</p>
+                         
+                          </div>
+                          )
+                        })}
+                      </div>
+                  
+
                   </div>
                 );
               })}

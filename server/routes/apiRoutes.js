@@ -49,7 +49,7 @@ router.delete('/comments/:_id', async (req, res) => {
 // localhost:3001/replies/:postId 
 router.post('/replies/:_id', async (req, res) => {
     try {
-        const newReply = await Comments.findOneAndUpdate({ _id: req.params._id }, { replies: { name: req.body.name, replyMessage: req.body.replyMessage }});
+        const newReply = await Comments.findOneAndUpdate({ _id: req.params._id }, { $push: {replies: { name: req.body.name, replyMessage: req.body.replyMessage }}}, { new: true });
         res.status(200).json(newReply);
     } catch (err) {
         res.status(500).json(err);
