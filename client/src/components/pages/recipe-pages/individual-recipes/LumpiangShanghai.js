@@ -3,10 +3,10 @@ import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
 import { useState, useEffect } from "react";
-import moment from 'moment';
+// import moment from 'moment';
 
 const LumpiangShanghai = () => {
-  const recipeName = "lumpiangshanghai";
+  const recipeName = "Lumpiang Shanghai";
 
   // adding new comment data to formData state
   const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const LumpiangShanghai = () => {
   // adding new formdata to the database
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // console.log(formData);
+    console.log(formData);
 
     fetch("http://localhost:3001/comments", {
       method: "POST",
@@ -40,7 +40,7 @@ const LumpiangShanghai = () => {
     })
       .then((res) => res.json())
       .then((newComment) => {
-        // console.log(newComment);
+        console.log(newComment);
         window.location.reload();
       })
       .catch((err) => {
@@ -105,8 +105,8 @@ const LumpiangShanghai = () => {
 
   // fetching the data from the database to display comments
   const [commentData, setCommentData] = useState([]);
-  const [timeStamp, setTimestamp] = useState([]);
-  console.log(timeStamp);
+  // const [timeStamp, setTimestamp] = useState([]);
+  // console.log(timeStamp);
   useEffect(() => {
     fetch(`http://localhost:3001/comments/${recipeName}`, {
       method: "GET",
@@ -119,55 +119,29 @@ const LumpiangShanghai = () => {
       .then((comments) => {
         setCommentData(comments.reverse());
 
-        let timestampArray = [];
+        // let timestampArray = [];
 
-        for (let i = 0; i < comments.length; i++) {
-          // use moment.js to format the time with .fromNow
-          const postDate = moment().format(comments[i].timestamp);
-          let postDateValues = postDate.split("-");
-          if (postDateValues[2]) {
-            let othervalue = postDateValues[2].split("T");
-            postDateValues[2] = othervalue[0];
-            postDateValues.unshift();
-          }
+        // for (let i = 0; i < comments.length; i++) {
+        //   // use moment.js to format the time with .fromNow
+        //   const postDate = moment().format(comments[i].timestamp);
+        //   let postDateValues = postDate.split("-");
+        //   if (postDateValues[2]) {
+        //     let othervalue = postDateValues[2].split("T");
+        //     postDateValues[2] = othervalue[0];
+        //     postDateValues.pop();
+        //   }
 
-          let nowTime = moment().format("YYYY-MM-DD");
-          let fromNowValues = nowTime.split("-");
-          console.log(moment(postDateValues).from(moment(fromNowValues)));
-          timestampArray.push(
-            moment(postDateValues).from(moment(fromNowValues))
-          );
-          console.log(timestampArray);
-          setTimestamp([...timestampArray].reverse());
+        //   let nowTime = moment().format("YYYY-MM-DD");
+        //   let fromNowValues = nowTime.split("-");
+        //   console.log(moment(postDateValues).from(moment(fromNowValues)));
+        //   timestampArray.push(
+        //     moment(postDateValues).from(moment(fromNowValues))
+        //   );
+        //   console.log(timestampArray);
+        //   setTimestamp([...timestampArray].reverse());
           
-        }
+        // }
   
-
-
-      //   let timestampArray = [];
-        
-      // //  format timestamp 
-      // for (let i = 0; i < comments.length; i++) {
-      //   const commentTime = moment().format(comments[i].timestamp);
-      //   let commentTimeValue = commentTime.split("-");
-      //   if(commentTimeValue[2]) {
-      //     let newValue = commentTimeValue[2].split("T");
-      //     commentTimeValue[2] = newValue[0];
-      //     commentTimeValue.pop();
-      //   } 
-
-      //   let nowTime = moment().format("YYYY-MM-DD");
-      //   let fromNowValues = nowTime.split("-");
-      //   console.log(moment(commentTimeValue).from(moment(fromNowValues)));
-      //   timestampArray.push(
-      //     moment(commentTimeValue).from(moment(fromNowValues))
-      //   );
-      //   setTimestamp([...timestampArray].reverse());
-      // }
-     
-
-
- 
       })
       .catch((err) => {
         console.error(err);
@@ -325,7 +299,7 @@ const LumpiangShanghai = () => {
                   >
                     Cancel
                   </button>
-                  <button className="post-button" onSubmit={handleFormSubmit}>
+                  <button className="post-button" onClick={handleFormSubmit}>
                     Post
                   </button>
                 </div>
@@ -338,13 +312,13 @@ const LumpiangShanghai = () => {
                     <div className="subcomment-box">
                       <h5 className="comment-name">{comment.name}</h5>
                      
-                      {timeStamp.map((time) => {
+                      {/* {timeStamp.map((time) => {
                         return (
                           <div>
                             <small>{time}</small>
                           </div>
                         )
-                      })}
+                      })} */}
                       <small>{comment.timestamp}</small>
                      
                       <p className="comment-message">{comment.message}</p>
