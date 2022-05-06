@@ -1,3 +1,4 @@
+/* images */
 .about-image {
     width: 100%;
     object-fit: cover;
@@ -8,6 +9,7 @@
     object-fit: cover;
 }
 
+/* paragraphs */
 .about-paras {
     line-height: 30px;
 }
@@ -47,11 +49,6 @@ textarea {
     flex-direction: column;
 }
 
-.about-row-3 {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
 .thanks-button {
     width: 300px;
     background-color: rgb(242, 230, 232); 
@@ -82,50 +79,22 @@ textarea {
 
 @media screen and (min-width: 500px) {
     .about-image {
-        width: 300px;
-        margin-left: 50px;
+        height: 400px;
+        width: 100%;      
+        margin: 0;
+        object-fit:contain;
     }
 
     .about-image-2 {
-        height: 500px;
-        margin-right: 50px;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .about-row {
-        display: flex; 
-        flex-direction: row-reverse;
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+        margin-right: 40px;
     }
 
-    .about-row-2 {
-        display: flex; 
-        flex-direction: row;
-    }
-
-    /* .form-group {
-        background-color: var(--navbar-kulay);
-        padding: 25px;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-    } */
 }
 
-@media (min-width: 500px) and (max-width: 800px) {
-    .about-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;   
-     }
 
-     .about-image-2 {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;   
-     }
-
-}
 
 
 
