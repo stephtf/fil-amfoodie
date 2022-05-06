@@ -98,7 +98,7 @@ const LumpiangShanghai = () => {
       });
   };
 
-  // comments and replies - fetching all recipe data from database  
+  // comments and replies - fetching all recipe data from database
   const [commentData, setCommentData] = useState([]);
   useEffect(() => {
     fetch(`https://www.filamfoodblog.com/comments/${recipeName}`, {
@@ -300,16 +300,6 @@ const LumpiangShanghai = () => {
                   <div className="comment-box" key={comment._id}>
                     <div className="subcomment-box">
                       <h5 className="comment-name">{comment.name}</h5>
-
-                      {/* {timeStamp.map((time) => {
-                        return (
-                          <div>
-                            <small>{time}</small>
-                          </div>
-                        )
-                      })} */}
-                      {/* <small>{comment.timestamp}</small> */}
-
                       <small>{parsetime(comment.timestamp)}</small>
 
                       <p className="comment-message">{comment.message}</p>
@@ -380,14 +370,6 @@ const LumpiangShanghai = () => {
                         return (
                           <div key={replies._id} className="subcomment-box">
                             <h5 className="comment-name">{replies.name}</h5>
-
-                            {/* {timeStamp.reduce((time) => {
-                                    return (
-                                      <div>
-                                        <small>{time}</small>
-                                      </div>
-                                    )
-                                  })} */}
                             <small>{parsetime(replies.timestamp)}</small>
                             <p className="comment-message space-below-10">
                               {replies.replyMessage}
@@ -401,15 +383,14 @@ const LumpiangShanghai = () => {
               })}
           </div>
         </div>
+        <h2 className="text-center space-above-75 space-below-25">
+          Check out these other appetizers!
+        </h2>
+        <div className="space-above-10">
+          <Appetizers />
+        </div>
+        <Footer />
       </div>
-      <h2 className="text-center space-above-75 space-below-25">
-        Check out these other appetizers!
-      </h2>
-      <div className="space-above-10">
-        <Appetizers />
-      </div>
-
-      <Footer />
     </div>
   );
 };
