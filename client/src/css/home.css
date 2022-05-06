@@ -7,6 +7,7 @@
     width: 100%;
     height: 400px;
     object-fit: cover; 
+    padding: 0px 10px;
 }
 
 .favorites-space {
@@ -26,5 +27,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover; 
     }
 }

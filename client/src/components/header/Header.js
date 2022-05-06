@@ -14,6 +14,7 @@ const Header = ({ currentPage, handlePageChange }) => {
       }, [currentPage]);
 
     const aboutComponent = document.getElementsByClassName('about-us')[0];
+    const heroImage = document.getElementsByClassName('hero-image')[0];
     const bodyContainer = document.getElementsByClassName('body-container')[0];
     const footer = document.querySelectorAll('footer')[0];
 
@@ -27,6 +28,9 @@ const Header = ({ currentPage, handlePageChange }) => {
         if(footer) {
             footer.style.display = 'none';
         }
+        if(heroImage) {
+            heroImage.style.display = 'none';
+        }
     } else {
         if(bodyContainer) {
             bodyContainer.style.display = 'block';
@@ -36,6 +40,9 @@ const Header = ({ currentPage, handlePageChange }) => {
         }
         if(footer) {
             footer.style.display = 'block';
+        }
+        if(heroImage) {
+            heroImage.style.display = 'block';
         }
     }
 
