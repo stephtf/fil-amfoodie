@@ -7,7 +7,7 @@ The Fil-Am Food Blog contains recipes for Filipino and American dishes, as well 
 * MongoDB
 * Mongoose 
 * MongoDB Atlas
-* GraphQL
+* Express API
 * React 
 * JavaScript 
 * Node.js 
