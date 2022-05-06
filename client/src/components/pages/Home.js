@@ -9,8 +9,9 @@ const Home = () => {
     return (
         <div>
             <Header />
+            <img src={buyingtaho} className='hero-image space-below-25' alt='Steph and Gian buy taho in Baguio'/>
             <div className='body-container'>
-                <img src={buyingtaho} className='hero-image space-below-25' alt='Steph and Gian buy taho in Baguio'/>
+         
                 <h2 className='home-title'>Our Current Favorites</h2>
                 <div className='favorites-space'> 
                     <CalamansiCocktailCard />
