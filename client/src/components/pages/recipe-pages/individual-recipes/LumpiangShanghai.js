@@ -31,10 +31,10 @@ const LumpiangShanghai = () => {
     event.preventDefault();
     console.log(formData);
 
-    fetch("http://localhost:3001/comments", {
-      method: "POST",
+    fetch("https://www.filamfoodblog.com/comments", {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     })
@@ -86,10 +86,10 @@ const LumpiangShanghai = () => {
     const commentId = postReplyButton.value; 
     // console.log(commentId);
 
-    fetch(`http://localhost:3001/replies/${commentId}`, {
+    fetch(`https://www.filamfoodblog.com/replies/${commentId}`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
       },
       body: JSON.stringify(replyData),
     })
@@ -108,10 +108,10 @@ const LumpiangShanghai = () => {
   // const [timeStamp, setTimestamp] = useState([]);
   // console.log(timeStamp);
   useEffect(() => {
-    fetch(`http://localhost:3001/comments/${recipeName}`, {
+    fetch(`https://www.filamfoodblog.com/comments/${recipeName}`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
       },
       body: JSON.stringify(),
     })
