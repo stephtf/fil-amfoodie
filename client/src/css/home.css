@@ -22,10 +22,7 @@
     align-items: center;
 }
 
-/* this space is necessary for mobile */
-.paras-space {
-    margin-bottom: 20px;
-}
+
 
 @media screen and (min-width: 800px) {
     .favorites-space {
@@ -38,5 +35,6 @@
         width: 100%;
         height: 400px;
         object-fit: cover; 
+        padding: 0px 0px;
     }
 }
