@@ -43,8 +43,9 @@ li {
 .recipes-space {
     padding-top: 25px;
     padding-bottom: 1px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     background-color: #f9f1e6;
     margin-bottom: 15px;
     display: flex;
