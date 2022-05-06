@@ -133,7 +133,6 @@ const CalamansiCocktail = () => {
     let fromNowValues = nowTime.split("-");
     
     return moment(postDate3).from(moment(fromNowValues))
-      
 }
 
   // when 'reply' is clicked - hide reply button and display cancel button
@@ -197,6 +196,16 @@ const CalamansiCocktail = () => {
             </li>
           </ol>
         </div>
+      </div>
+
+      <div className='kuwento space-below-75'>
+        <h2 className='text-center space-below-25'>Kuwento</h2>
+        <h3>Friday, May 6, 2022</h3>
+        <p className='kuwento-paras'>This recipe is special to us because we created it when coming up with "drinks on arrival" to serve at our wedding. Since we're getting married in Atlanta in August it's going to be <i>super</i> hot! We wanted something refreshing and light, but still strong enough to keep our guests happy and coming back for more. My mom actually came up with the name for this drink, "Madaling Malasing," which means "gets you drunk" in Tagalog, because it really is strong!</p>
+        <p className='kuwento-paras'>When we make this at home, we usually just use calamansi concentrate because that's easiest for us to find here where we live. But if you have a calamansi tree, or are able to get fresh calamansi, this would taste even better! We recently bought a calamansi tree, so I can't wait to make our calamansi cocktails once our fruits come in. That is, as long as I don't end up killing the plant by forgetting to water it!</p>
+        <p className='kuwento-paras'>We love this recipe with sparkling water because it adds a little more fizz to the drink. However, we've also tried it with just regular water, mixing with the calamansi concentrate, and it still tastes good. It kind of depends on your preference.</p>
+        <p className='kuwento-subtitle'>Can you use any type of vodka?</p>
+        <p className='kuwento-paras'>Yes, you could, but we think that the grapefruit vodka gives it more of a citrius flavor. You could experiment with using lemon, but the grapefruit blends really well with the calamansi in this cocktail.</p>
       </div>
 
       <div className="space-above-50">

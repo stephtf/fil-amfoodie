@@ -82,10 +82,17 @@ li {
     margin-bottom: 15px;
 }
 
-.small-text {
-    font-size: 15px;
-    margin-top: 5px;
+.kuwento-paras {
+    line-height: 40px;
+    font-size: 20px;
 }
+
+.kuwento-subtitle {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
 
 .ingredients-container {
     background-color: white;
