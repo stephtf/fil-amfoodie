@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import moment from "moment";
 
 const Graham = () => {
-  const recipeName = "Graham";
+  const recipeName = "Graham Cake";
 
   // comments - adding new form data to state
   const [formData, setFormData] = useState({
@@ -170,7 +170,7 @@ const Graham = () => {
     <div>
       <Header />
       <div className="body-container">
-        <h2 className="space-below-10 recipe-titles">Graham Cake</h2>
+        <h2 className="space-below-10 recipe-titles">{recipeName}</h2>
         <h3 className="center-text">A Fil-Am tiramisu!</h3>
         <img
           src={graham}
