@@ -206,7 +206,9 @@ const CalamansiCocktail = () => {
         <p className='kuwento-paras'>We love this recipe with sparkling water because it adds a little more fizz to the drink. However, we've also tried it with just regular water, mixing with the calamansi concentrate, and it still tastes good. It kind of depends on your preference.</p>
         <p className='kuwento-subtitle'>Can you use any type of vodka?</p>
         <p className='kuwento-paras'>Yes, you could, but we think that the grapefruit vodka gives it more of a citrius flavor. You could experiment with using lemon, but the grapefruit blends really well with the calamansi in this cocktail.</p>
+        <p className='signature'>xoxo Steph</p>
       </div>
+      
 
       <div className="space-above-50">
           <div>
