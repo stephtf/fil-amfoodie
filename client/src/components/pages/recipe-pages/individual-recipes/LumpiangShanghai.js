@@ -3,7 +3,7 @@ import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
 import { useState, useEffect } from "react";
-// import moment from 'moment';
+import moment from 'moment';
 
 const LumpiangShanghai = () => {
   const recipeName = "Lumpiang Shanghai";
@@ -147,6 +147,36 @@ const LumpiangShanghai = () => {
         console.error(err);
       });
   }, []);
+
+  const parsetime = (timestamp) => {
+
+      let postDate = moment().format(timestamp);
+      // console.log(postDate);
+      let postDateValues = postDate.split("-");
+      let postDate2 = postDate.split('.')[0];
+      postDate2=postDate2.replace('T','-');
+      postDate2=postDate2.replace(/:/gi,'-');
+      let postDate3 = postDate2.split('-');
+      console.log(postDate3);
+      // let postDate3 = moment(postDate2.replace('T',' ')).format("YYYY-MM-DD hh:mm:ss");
+
+
+      // console.log(postDateValues);
+          if (postDateValues[2]) {
+            let othervalue = postDateValues[2].split("T");
+            postDateValues[2] = othervalue[0];
+            postDateValues.pop();
+          }
+
+      let nowTime = moment().utc().format("YYYY-MM-DD-hh-mm-ss");
+      let fromNowValues = nowTime.split("-");
+
+      console.log('fromNowValues=');
+      console.log(fromNowValues);
+      
+      return moment(postDate3).from(moment(fromNowValues))
+        
+  }
 
   const [replyForm, setReplyForm] = useState("");
   const handleReply = (id) => {
@@ -319,7 +349,9 @@ const LumpiangShanghai = () => {
                           </div>
                         )
                       })} */}
-                      <small>{comment.timestamp}</small>
+                      {/* <small>{comment.timestamp}</small> */}
+
+                      <small>{parsetime(comment.timestamp)}</small>
                      
                       <p className="comment-message">{comment.message}</p>
                       <div
@@ -382,7 +414,7 @@ const LumpiangShanghai = () => {
                                       </div>
                                     )
                                   })} */}
-                              <small>{replies.timestamp}</small>
+                              <small>{parsetime(replies.timestamp)}</small>
                               <p className='comment-message space-below-10'>{replies.replyMessage}</p>
                          
                           </div>
