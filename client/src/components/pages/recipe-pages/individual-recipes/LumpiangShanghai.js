@@ -3,12 +3,12 @@ import Header from "../../../header/Header";
 import Appetizers from "../Appetizers";
 import lumpia from "../recipe-photos/lumpia.jpg";
 import { useState, useEffect } from "react";
-import moment from 'moment';
+import moment from "moment";
 
 const LumpiangShanghai = () => {
   const recipeName = "Lumpiang Shanghai";
 
-  // adding new comment data to formData state
+  // comments - adding new form data to state
   const [formData, setFormData] = useState({
     recipe: `${recipeName}`,
     name: "",
@@ -26,21 +26,19 @@ const LumpiangShanghai = () => {
     });
   };
 
-  // adding new formdata to the database
+  // comments - posting comment data from state to database
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
 
     fetch("https://www.filamfoodblog.com/comments", {
-      method: 'POST',
+      method: "POST",
       headers: {
-          "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
       .then((newComment) => {
-        console.log(newComment);
         window.location.reload();
       })
       .catch((err) => {
@@ -48,7 +46,7 @@ const LumpiangShanghai = () => {
       });
   };
 
-  // show/hide comment form upon user click
+  // comments - show/hide comment form box upon user click
   const handleNewComment = () => {
     const commentForm = document.getElementById("show-comment");
     commentForm.style.display = "block";
@@ -59,7 +57,7 @@ const LumpiangShanghai = () => {
     commentForm.style.display = "none";
   };
 
-  // replies - save reply form data to state
+  // replies - adding new form data to state
   const [replyData, setReplyData] = useState({
     replies: {
       name: "",
@@ -78,24 +76,21 @@ const LumpiangShanghai = () => {
     });
   };
 
-
+  // replies - posting reply data from state to database (replies of another user's comment)
   const handleReplyPost = (event) => {
     event.preventDefault();
-    // console.log(replyData);
-    const postReplyButton = document.getElementById('post-reply-button');
-    const commentId = postReplyButton.value; 
-    // console.log(commentId);
+    const postReplyButton = document.getElementById("post-reply-button");
+    const commentId = postReplyButton.value;
 
     fetch(`https://www.filamfoodblog.com/replies/${commentId}`, {
       method: "POST",
       headers: {
-          "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(replyData),
     })
       .then((res) => res.json())
       .then((newReply) => {
-        // console.log(newReply);
         window.location.reload();
       })
       .catch((err) => {
@@ -103,81 +98,45 @@ const LumpiangShanghai = () => {
       });
   };
 
-  // fetching the data from the database to display comments
+  // comments and replies - fetching all recipe data from database  
   const [commentData, setCommentData] = useState([]);
-  // const [timeStamp, setTimestamp] = useState([]);
-  // console.log(timeStamp);
   useEffect(() => {
     fetch(`https://www.filamfoodblog.com/comments/${recipeName}`, {
       method: "GET",
       headers: {
-          "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(),
     })
       .then((res) => res.json())
       .then((comments) => {
         setCommentData(comments.reverse());
-
-        // let timestampArray = [];
-
-        // for (let i = 0; i < comments.length; i++) {
-        //   // use moment.js to format the time with .fromNow
-        //   const postDate = moment().format(comments[i].timestamp);
-        //   let postDateValues = postDate.split("-");
-        //   if (postDateValues[2]) {
-        //     let othervalue = postDateValues[2].split("T");
-        //     postDateValues[2] = othervalue[0];
-        //     postDateValues.pop();
-        //   }
-
-        //   let nowTime = moment().format("YYYY-MM-DD");
-        //   let fromNowValues = nowTime.split("-");
-        //   console.log(moment(postDateValues).from(moment(fromNowValues)));
-        //   timestampArray.push(
-        //     moment(postDateValues).from(moment(fromNowValues))
-        //   );
-        //   console.log(timestampArray);
-        //   setTimestamp([...timestampArray].reverse());
-          
-        // }
-  
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
 
+  // parse the timestamp and then convert moment into UTC to make comparison using .from() method
   const parsetime = (timestamp) => {
+    let postDate = moment().format(timestamp);
+    let postDateValues = postDate.split("-");
+    let postDate2 = postDate.split(".")[0];
+    postDate2 = postDate2.replace("T", "-");
+    postDate2 = postDate2.replace(/:/gi, "-");
+    let postDate3 = postDate2.split("-");
+    if (postDateValues[2]) {
+      let othervalue = postDateValues[2].split("T");
+      postDateValues[2] = othervalue[0];
+      postDateValues.pop();
+    }
+    let nowTime = moment().utc().format("YYYY-MM-DD-hh-mm-ss");
+    let fromNowValues = nowTime.split("-");
 
-      let postDate = moment().format(timestamp);
-      // console.log(postDate);
-      let postDateValues = postDate.split("-");
-      let postDate2 = postDate.split('.')[0];
-      postDate2=postDate2.replace('T','-');
-      postDate2=postDate2.replace(/:/gi,'-');
-      let postDate3 = postDate2.split('-');
-      console.log(postDate3);
-      // let postDate3 = moment(postDate2.replace('T',' ')).format("YYYY-MM-DD hh:mm:ss");
+    return moment(postDate3).from(moment(fromNowValues));
+  };
 
-
-      // console.log(postDateValues);
-          if (postDateValues[2]) {
-            let othervalue = postDateValues[2].split("T");
-            postDateValues[2] = othervalue[0];
-            postDateValues.pop();
-          }
-
-      let nowTime = moment().utc().format("YYYY-MM-DD-hh-mm-ss");
-      let fromNowValues = nowTime.split("-");
-
-      console.log('fromNowValues=');
-      console.log(fromNowValues);
-      
-      return moment(postDate3).from(moment(fromNowValues))
-        
-  }
-
+  // when 'reply' is clicked - hide reply button and display cancel button
   const [replyForm, setReplyForm] = useState("");
   const handleReply = (id) => {
     setReplyForm(id);
@@ -193,11 +152,11 @@ const LumpiangShanghai = () => {
     }
   };
 
+  // when 'cancel' is clicked - hide cancel button and display reply button
   const handleHide = (id) => {
     setReplyForm("");
     const replyButton = document.getElementById(`${id}`);
     replyButton.style.display = "block";
-    // console.log(document.getElementsByClassName("cancel-button"));
     const hideButton = document.getElementsByClassName("hide-button");
     for (let i = 0; i < hideButton.length; i++) {
       let mybutton = hideButton[i];
@@ -211,7 +170,7 @@ const LumpiangShanghai = () => {
     <div>
       <Header />
       <div className="body-container">
-        <h2 className="space-below-10 recipe-titles">Lumpiang Shanghai</h2>
+        <h2 className="space-below-10 recipe-titles">{recipeName}</h2>
         <h3 className="center-text">Fried and yummy</h3>
         <img
           className="main-image space-below-25"
@@ -341,7 +300,7 @@ const LumpiangShanghai = () => {
                   <div className="comment-box" key={comment._id}>
                     <div className="subcomment-box">
                       <h5 className="comment-name">{comment.name}</h5>
-                     
+
                       {/* {timeStamp.map((time) => {
                         return (
                           <div>
@@ -352,7 +311,7 @@ const LumpiangShanghai = () => {
                       {/* <small>{comment.timestamp}</small> */}
 
                       <small>{parsetime(comment.timestamp)}</small>
-                     
+
                       <p className="comment-message">{comment.message}</p>
                       <div
                         className="reply-button"
@@ -394,35 +353,49 @@ const LumpiangShanghai = () => {
                           >
                             Cancel
                           </button>
-                          <button className="post-button" id='post-reply-button' value={comment._id} onClick={handleReplyPost}>Post</button>
+                          <button
+                            className="post-button"
+                            id="post-reply-button"
+                            value={comment._id}
+                            onClick={handleReplyPost}
+                          >
+                            Post
+                          </button>
                         </div>
                       </form>
                     )}
-                          <hr></hr>
-                      <div className='replies-box'>
-                        {comment.repliesCount > 1 || comment.repliesCount < 1 ? <small className='space-below-10'>{comment.repliesCount} Replies</small> : <small className='space-below-10'>{comment.repliesCount} Reply</small> }
-                        
-                        {comment.replies.map((replies) => {
-                          return (
-                            <div key={replies._id} className='subcomment-box'>
-                              <h5 className='comment-name'>{replies.name}</h5>
+                    <hr></hr>
+                    <div className="replies-box">
+                      {comment.repliesCount > 1 || comment.repliesCount < 1 ? (
+                        <small className="space-below-10">
+                          {comment.repliesCount} Replies
+                        </small>
+                      ) : (
+                        <small className="space-below-10">
+                          {comment.repliesCount} Reply
+                        </small>
+                      )}
 
-                              {/* {timeStamp.reduce((time) => {
+                      {comment.replies.map((replies) => {
+                        return (
+                          <div key={replies._id} className="subcomment-box">
+                            <h5 className="comment-name">{replies.name}</h5>
+
+                            {/* {timeStamp.reduce((time) => {
                                     return (
                                       <div>
                                         <small>{time}</small>
                                       </div>
                                     )
                                   })} */}
-                              <small>{parsetime(replies.timestamp)}</small>
-                              <p className='comment-message space-below-10'>{replies.replyMessage}</p>
-                         
+                            <small>{parsetime(replies.timestamp)}</small>
+                            <p className="comment-message space-below-10">
+                              {replies.replyMessage}
+                            </p>
                           </div>
-                          )
-                        })}
-                      </div>
-                  
-
+                        );
+                      })}
+                    </div>
                   </div>
                 );
               })}
