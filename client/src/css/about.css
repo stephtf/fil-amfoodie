@@ -75,6 +75,11 @@ textarea {
     margin-top: 0;
 }
 
+/* this space is necessary for mobile */
+.paras-space {
+    margin-bottom: 20px;
+}
+
 @media screen and (min-width: 500px) {
     .about-image {
         width: 300px;

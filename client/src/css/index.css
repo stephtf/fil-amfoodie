@@ -30,7 +30,7 @@ body {
 
 /* to contain the meat of the website */
 .body-container {
-  margin: 5px 10px;
+  margin: 5px 20px;
 }
 
 input, select, option, optgroup, textarea, button,

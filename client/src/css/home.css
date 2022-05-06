@@ -22,6 +22,11 @@
     align-items: center;
 }
 
+/* this space is necessary for mobile */
+.paras-space {
+    margin-bottom: 20px;
+}
+
 @media screen and (min-width: 800px) {
     .favorites-space {
         display: flex;

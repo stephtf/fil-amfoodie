@@ -18,7 +18,7 @@ const About = () => {
                     <p className='about-paras'>
                     Most of our recipes are from our parents and our titas and titos (aunt and uncles), and represent the food that we grew up eating! However, we like to make our own versions of things. We often substitute when we don't have Filipino ingredients available. Or, we change things up to match our more 'American' taste buds. For example, Steph <i>hates</i> menudo with raisins in it, so we just leave those out!
                     </p>
-                    <p className='about-paras'>
+                    <p className='about-paras paras-space'>
                     Aside from cooking Pinoy foods, we both enjoy traveling! We've been to the Philippines a few times (actually Gian was born there and moved to the US when he was 5 years old). We visited Baguio, where Gian's family is from, and took a beautiful vacation in Cebu. Our favorite part was eating the lechon there - it's legit. Whenever we go back to the Philippines, we love visiting family and <i>especially</i> all the <i>handa</i> (feasts) they prepare for us when we arrive! 
                     </p>
                 </div>
