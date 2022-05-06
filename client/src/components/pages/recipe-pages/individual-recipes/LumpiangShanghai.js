@@ -119,26 +119,22 @@ const LumpiangShanghai = () => {
 
   // parse the timestamp and then convert moment into UTC to make comparison using .from() method
   const parsetime = (timestamp) => {
-    let dateArray = timestamp.split("-");
-    console.log(timestamp)
-    // postdate gives us an array of MM and YYYY
-    console.log(dateArray);
-    let date = dateArray.toString().slice(0,7).replace(',','-');
-    console.log(date);
-
-    let time = timestamp.slice(11,19).replace(':','-').replace(':','-');
-    console.log(time);
-
-    let timeConnect = date.concat('-').concat(time);
-    let newTimestamp = timeConnect.split('-')
-
-
-
-    let nowTime = moment().utc().format("YYYY-MM-DD-hh-mm-ss");
+    let postdate = timestamp.split("-");
+    let postDate2 = timestamp.split('.')[0];
+    postDate2=postDate2.replace('T','-');
+    postDate2=postDate2.replace(/:/gi,'-');
+    let postDate3 = postDate2.split('-');
+        if (postdate[2]) {
+          let othervalue = postdate[2].split("T");
+          postdate[2] = othervalue[0];
+          postdate.pop();
+        }
+    let nowTime = moment().utc().format("YYYY-MM-DD-HH-mm-ss");
     let fromNowValues = nowTime.split("-");
-
-    return moment(newTimestamp).from(moment(fromNowValues));
-  };
+    
+    return moment(postDate3).from(moment(fromNowValues))
+      
+}
 
   // when 'reply' is clicked - hide reply button and display cancel button
   const [replyForm, setReplyForm] = useState("");
