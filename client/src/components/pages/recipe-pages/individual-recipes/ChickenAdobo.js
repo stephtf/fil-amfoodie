@@ -212,6 +212,19 @@ const ChickenAdobo = () => {
         </div>
       </div>
 
+      <div className='kuwento space-below-75'>
+        <h2 className='text-center space-below-25'>Kuwento</h2>
+        <h3>May 14, 2022</h3>
+        <p className='kuwento-paras'>Chicken Adobo is an ABSOLUTE CLASSIC in Filipino cuisine! I grew up eating chicken adobo often, and — as I’m sure is the case for many Fil-Ams — it’s a comfort food that always reminds me of home cooking. I love the mix of flavors and the way that the sauce pairs with jasmine rice. Don’t even get me started with the Adobo Aroma you get while it’s cooking.
+        </p>
+        <p className='kuwento-paras'>This dish is perfect when you want to cook a dish that you can set and forget. Once all the ingredients are in the pot, you just leave it for 30-45 minutes (depending on how hungry you are). At this time, we usually set up our rice cooker to start so by the time we come back to check on it, both the adobo and rice are ready to eat! 
+        </p>
+        <p className='kuwento-paras'>Whenever we make chicken adobo, we usually use boneless, skinless chicken thighs although traditionally, both chicken legs and chicken thighs are used. We also play around a little bit with the ratio of soy sauce and rice wine vinegar, depending on how salty or sour/acidic we want the sauce to be, and add siling labuyo (AKA Filipino chile pepper) if we want to add a little bit of spice. Traditionally, pepper corns are added to pot for added flavor. However, both Steph and I HATE biting into a pepper corn so we just use ground black pepper. Don’t forget the bay leaves!
+        </p>
+        <p className='kuwento-paras'>Kain na!</p>
+        <p className='signature'>- Gian</p>
+      </div>
+
       <div className="space-above-50">
           <div>
             <h2 className="text-center space-below-25">Comments</h2>

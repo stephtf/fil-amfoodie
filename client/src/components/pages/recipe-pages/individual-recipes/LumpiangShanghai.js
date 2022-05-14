@@ -249,6 +249,21 @@ const LumpiangShanghai = () => {
           </div>
         </div>
 
+    <div className='kuwento space-below-75'>
+        <h2 className='text-center space-below-25'>Kuwento</h2>
+        <h3>May 14, 2022</h3>
+        <p className='kuwento-paras'>Lumpiang Shanghai is a common Filipino appetizer or side that we grew up eating most frequently at Filipino parties, birthdays, or other special events. It’s very similar to Chinese and other Asian eggrolls or springrolls. As the name suggests, Filipino lumpia has its origins in Chinese cuisine via the arrival of Chinese immigrants to the Philippines as early as 900AD. Yet, it does have a uniquely pinoy flavor that distinguishes it. 
+        </p>
+        <p className='kuwento-paras'>For me, lumpiang shanghai brings back memories as a child when I would help my mom with food prep the night before a big party we were hosting. We would roll a ton of lumpia in advance, and chill it in the fridge so that it would be ready for deep frying the next day. My job was always to help peel apart the lumpia wrapper, which comes stuck together when you buy them from the grocery store. I would also help with the rolling, but my favorite part was eating the raw lumpia wrapper whenever my mom wasn’t looking! 
+        </p>
+        <p className='kuwento-paras'>If we weren’t making lumpiang shanghai fresh for a party, we would make a bunch in advance and then freeze it. To this day, I still have frozen lumpiang shanghai in my freezer, which is perfect for when Gian or I get the craving for this delicious fried food. I highly recommend making a big batch and then freezing them. Trust me, you will want more! 
+        </p>
+        <p className='kuwento-subtitle'>Tips and Tricks</p>
+        <p className='kuwento-paras'>One tip I have is for rolling. If it’s your first time rolling eggrolls, don’t feel discouraged if your lumpia turns out looking strange. It really does take practice to get them looking as good as they taste! The key is to roll as tightly as you can. Otherwise, you will end up with air pockets that will allow the <i>laman</i> (filling) to seep out during frying, and this will affect its crispness and shape. I also recommend using a thin layer of meat. I usually use about a tablespoon per roll. If you use too much filling, it may ooze out of the ends of the wrapper, which is not what you want! After making a few of them, you will get a sense of the perfect amount of filling to include to prevent the oozing and ensure that you don’t have empty pockets. 
+        </p>
+        <p className='signature'>xoxo Steph</p>
+      </div>
+
         <div className="space-above-50">
           <div>
             <h2 className="text-center space-below-25">Comments</h2>

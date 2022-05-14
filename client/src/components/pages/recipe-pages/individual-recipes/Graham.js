@@ -238,6 +238,23 @@ const Graham = () => {
           </div>
         </div>
 
+      <div className='kuwento space-below-75'>
+        <h2 className='text-center space-below-25'>Kuwento</h2>
+        <h3>May 14, 2022</h3>
+        <p className='kuwento-paras'>Graham Cake (or just Graham, as we call it) is that dessert that gives you the perfect blend of sweet, creamy, and refreshing with a wonderful mix of textures. I am OBSESSED with this dish! I could eat 1-2 servings of Graham at every single meal and never get tired of it. The way that the graham crackers adopt a cake-like texture after soaking the cream is just to die for. In the words of my father, graaaaabe!
+        </p>
+        <p className='kuwento-paras'>Whenever we make Graham, we always start with the cream. The first time we made this dish, we actually tried whisking the cream since we did not have a mixer. Do not do this!We were mixing for over 20 minutes and the cream was still a liquid.  Save yourself some time and buy a mixer. We have also previously attempted a vegan version of this dish by using coconut cream instead of heavy cream. The main challenge was that coconut cream does not whip as nicely as heavy cream due to lower fat content. It still tasted good though!
+        </p>
+        <p className='kuwento-subtitle'>What fruits should you use?</p>
+        <p className='kuwento-paras'>One of my favorite parts of Graham is that you can put in whatever fruits you want. We love using mangos and strawberries, but bananas are quite good too. Canned fruit cocktail is also common, but fresh fruits are better if you have them. With that being said, it’s not always possible to get fresh fruits. We have used mangos from the mango cups a few times, and it’s still really good. 
+        </p>
+        <p className='kuwento-paras'>Graham is best served cold and pairs well with coffee.
+        </p>
+        <p className='kuwento-paras'>Kain na!
+        </p>
+        <p className='signature'>- Gian</p>
+      </div>
+
         <div className="space-above-50">
           <div>
             <h2 className="text-center space-below-25">Comments</h2>
