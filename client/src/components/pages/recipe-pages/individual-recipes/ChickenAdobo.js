@@ -140,14 +140,20 @@ const ChickenAdobo = () => {
   const [replyForm, setReplyForm] = useState("");
   const handleReply = (id) => {
     setReplyForm(id);
-    const replyButton = document.getElementById(`${id}`);
-    replyButton.style.display = "none";
-    const hideButton = document.getElementsByClassName("cancel-button");
-
-    for (let i = 0; i < hideButton.length; i++) {
-      let mybutton = hideButton[i];
-      if (mybutton.value === id) {
-        mybutton.style.display = "block";
+    const replyButtons = document.getElementsByClassName('reply-button');
+    const hideButtons = document.getElementsByClassName("cancel-button");
+    for (let i = 0; i < replyButtons.length; i++) {
+      let replyBtn = replyButtons[i];
+      if(replyBtn.value === id) {
+        replyBtn.style.display = 'none'; 
+      } else {
+        replyBtn.style.display = 'block';
+      }
+    }
+    for (let i = 0; i < hideButtons.length; i++) {
+      let cancelBtn = hideButtons[i];
+      if (cancelBtn.value === id) {
+        cancelBtn.style.display = "block";
       }
     }
   };
@@ -266,13 +272,13 @@ const ChickenAdobo = () => {
                       <small>{parsetime(comment.timestamp)}</small>
 
                       <p className="comment-message">{comment.message}</p>
-                      <div
+                      <button
                         className="reply-button"
                         onClick={() => handleReply(`${comment._id}`)}
-                        id={comment._id}
+                        id={comment._id} value={comment._id}
                       >
                         Reply
-                      </div>
+                      </button>
                     </div>
                     {replyForm === `${comment._id}` && (
                       <form className="reply-group space-below-25">
