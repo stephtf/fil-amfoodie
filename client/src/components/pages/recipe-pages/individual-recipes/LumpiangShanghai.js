@@ -48,12 +48,12 @@ const LumpiangShanghai = () => {
 
   // comments - show/hide comment form box upon user click
   const handleNewComment = () => {
-    const commentForm = document.getElementById("show-comment");
+    const commentForm = document.getElementsByClassName("show-comment")[0];
     commentForm.style.display = "block";
   };
 
   const hideNewComment = () => {
-    const commentForm = document.getElementById("show-comment");
+    const commentForm = document.getElementsByClassName("show-comment")[0];
     commentForm.style.display = "none";
   };
 
@@ -79,7 +79,7 @@ const LumpiangShanghai = () => {
   // replies - posting reply data from state to database (replies of another user's comment)
   const handleReplyPost = (event) => {
     event.preventDefault();
-    const postReplyButton = document.getElementById("post-reply-button");
+    const postReplyButton = document.getElementsByClassName("post-reply-button")[0];
     const commentId = postReplyButton.value;
 
     fetch(`https://www.filamfoodie.com/replies/${commentId}`, {
@@ -245,15 +245,13 @@ const LumpiangShanghai = () => {
           <div>
             <h2 className="text-center space-below-25">Comments</h2>
             <h3
-              className="comment-group"
-              id="post-title"
+              className="comment-group post-title"
               onClick={handleNewComment}
             >
               Post a Comment
             </h3>
             <form
-              className="comment-group"
-              id="show-comment"
+              className="comment-group show-comment"
               style={{ display: "none" }}
             >
               <div className="newcomment-box">
@@ -344,8 +342,7 @@ const LumpiangShanghai = () => {
                             Cancel
                           </button>
                           <button
-                            className="post-button"
-                            id="post-reply-button"
+                            className="post-button post-reply-button"
                             value={comment._id}
                             onClick={handleReplyPost}
                           >

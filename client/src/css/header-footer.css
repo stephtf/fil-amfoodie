@@ -11,7 +11,8 @@ nav {
     color: var(--pinoy-red);
     font-size: 13px;
     padding-left: 18px;
-    top: 75px;
+    margin-top: -6px;
+
 }
 
 .logo-container {

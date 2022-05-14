@@ -52,7 +52,7 @@ const Header = ({ currentPage, handlePageChange }) => {
                 <div className='logo-container'>
                     <Link to='/'><img className='img-logo' alt='favicon logo' src='/favicon.png'/></Link>
                     <Link to='/'><div>
-                    <h1>fil-am</h1><h2 className='logo-subtitle'>FOOD BLOG</h2>
+                    <h1>fil-am</h1><h2 className='logo-subtitle'>FOODIE</h2>
                     </div></Link>
                 </div> 
                 { largeScreen ? <NavLinks /> :
