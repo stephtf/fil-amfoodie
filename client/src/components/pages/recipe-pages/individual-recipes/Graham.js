@@ -30,7 +30,7 @@ const Graham = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://www.filamfoodblog.com/comments", {
+    fetch("https://www.filamfoodie.com/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const Graham = () => {
     const postReplyButton = document.getElementById("post-reply-button");
     const commentId = postReplyButton.value;
 
-    fetch(`https://www.filamfoodblog.com/replies/${commentId}`, {
+    fetch(`https://www.filamfoodie.com/replies/${commentId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const Graham = () => {
   // comments and replies - fetching all recipe data from database
   const [commentData, setCommentData] = useState([]);
   useEffect(() => {
-    fetch(`https://www.filamfoodblog.com/comments/${recipeName}`, {
+    fetch(`https://www.filamfoodie.com/comments/${recipeName}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

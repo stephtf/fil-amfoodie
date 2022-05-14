@@ -15,7 +15,7 @@ The Fil-Am Food Blog is a recipe blog featuring Filipino and American dishes. Us
 * CSS
 
 ## Link
-Check out the deployed application: https://www.filamfoodblog.com
+Check out the deployed application: https://www.filamfoodie.com
 
 ## Questions 
 If you have any questions about the repo, open an issue or contact me directly at stfajardo@gmail.com. You can find more of my work at [stephfajardo.com](https://www.stephfajardo.com).

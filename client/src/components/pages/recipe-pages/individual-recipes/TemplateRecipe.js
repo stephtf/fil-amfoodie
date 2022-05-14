@@ -30,7 +30,7 @@ const LumpiangShanghai = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://www.filamfoodblog.com/comments", {
+    fetch("https://www.filamfoodie.com/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const LumpiangShanghai = () => {
     const postReplyButton = document.getElementById("post-reply-button");
     const commentId = postReplyButton.value;
 
-    fetch(`https://www.filamfoodblog.com/replies/${commentId}`, {
+    fetch(`https://www.filamfoodie.com/replies/${commentId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const LumpiangShanghai = () => {
   // comments and replies - fetching all recipe data from database
   const [commentData, setCommentData] = useState([]);
   useEffect(() => {
-    fetch(`https://www.filamfoodblog.com/comments/${recipeName}`, {
+    fetch(`https://www.filamfoodie.com/comments/${recipeName}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -240,6 +240,18 @@ const LumpiangShanghai = () => {
             </ol>
           </div>
         </div>
+
+        <div className='kuwento space-below-75'>
+        <h2 className='text-center space-below-25'>Kuwento</h2>
+        <h3>Friday, May 6, 2022</h3>
+        <p className='kuwento-paras'>This recipe is special to us because we created it when coming up with "drinks on arrival" to serve at our wedding. Since we're getting married in Atlanta in August it's going to be <i>super</i> hot! We wanted something refreshing and light, but still strong enough to keep our guests happy and coming back for more. My mom actually came up with the name for this drink, "Madaling Malasing," which means "gets you drunk" in Tagalog, because it really is strong!</p>
+        <p className='kuwento-paras'>When we make this at home, we usually just use calamansi concentrate because that's easiest for us to find here where we live. But if you have a calamansi tree, or are able to get fresh calamansi, this would taste even better! We recently bought a calamansi tree, so I can't wait to make our calamansi cocktails once our fruits come in. That is, as long as I don't end up killing the plant by forgetting to water it!</p>
+        <p className='kuwento-paras'>We love this recipe with sparkling water because it adds a little more fizz to the drink. However, we've also tried it with just regular water, mixing with the calamansi concentrate, and it still tastes good. It kind of depends on your preference.</p>
+        <p className='kuwento-subtitle'>Can you use any type of vodka?</p>
+        <p className='kuwento-paras'>Yes, you could, but we think that the grapefruit vodka gives it more of a citrius flavor. You could experiment with using lemon, but the grapefruit blends really well with the calamansi in this cocktail.</p>
+        <p className='signature'>xoxo Steph</p>
+      </div>
+      
 
         <div className="space-above-50">
           <div>
@@ -409,3 +421,4 @@ export default LumpiangShanghai;
 // 9. Add ingredients and your instructions to the 'li' starting on line 185
 // 10. Add component for recipe category on line 390
 // 11. Go to app.js component and import this recipe there; create API and add route 
+// 12. Add your kuwento!

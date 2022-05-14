@@ -44,7 +44,7 @@ const About = () => {
                     <label for='Message' className='form-label'>Message </label>
                     <textarea rows='10' type='Message' name='Message' className='form-style textbox-style' required/>
                     <button className='form-button'>Send</button>
-                    <input type="hidden" name="_next" value="https://www.filamfoodblog.com/thanks"></input>
+                    <input type="hidden" name="_next" value="https://www.filamfoodie.com/thanks"></input>
                 </form>
                 </section>
             </div>
