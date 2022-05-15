@@ -291,8 +291,8 @@ button:hover {
 .card-container {
     display: flex; 
     width: max-content;
-    transform: translateX(0px);
-    transition: all 2s ease;
+    /* transform: translateX(0px); */
+    transition: all 1s ease;
 }
 
 
