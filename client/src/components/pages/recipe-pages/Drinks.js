@@ -1,9 +1,17 @@
+import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 import CalamansiCocktailCard from "./recipe-cards/CalamansiCocktail-card";
 
 const Drinks = () => {
     return (
-        <div className='body-container recipes-space'>
+        <div className='content-container'>
+            <div className='recipes-wrapper'>
+            <ArrowBackIosOutlined /> 
+            <div className="card-container">
         <CalamansiCocktailCard />
+        </div>
+            
+            <ArrowForwardIosOutlined /> 
+            </div>
         </div>
     )
 }

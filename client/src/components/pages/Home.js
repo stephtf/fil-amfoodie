@@ -11,12 +11,16 @@ const Home = () => {
             <Header />
             <img src={buyingtaho} className='hero-image space-below-25' alt='Steph and Gian buy taho in Baguio'/>
             <div className='body-container'>
+                <div className='content-container'>
+                <div className='content-wrapper'>
                 <h2 className='home-title'>Our Current Favorites</h2>
                 <div className='favorites-space'> 
                     <CalamansiCocktailCard />
                     <GrahamCard />
                 </div>
 
+            </div>
+            </div>
             </div>
             <Footer /> 
         </div>

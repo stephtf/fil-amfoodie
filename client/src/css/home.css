@@ -11,10 +11,9 @@
 }
 
 .favorites-space {
-    padding-top: 25px;
-    padding-bottom: 1px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     background-color: #f9f1e6;
     margin-top: 20px;
     display: flex;
@@ -29,6 +28,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        padding-left: 50px;
+        padding-right: 35px;
+        padding-top: 22px;
+        padding-bottom: 20px;
     }
 
     .hero-image {

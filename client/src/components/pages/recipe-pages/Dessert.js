@@ -1,9 +1,16 @@
+import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 import GrahamCard from "./recipe-cards/Graham-card";
 
 const Dessert = () => {
     return (
-        <div className='body-container recipes-space'>
-            <GrahamCard />
+        <div className='content-container'>
+            <div className='recipes-wrapper'>
+                <ArrowBackIosOutlined /> 
+                    <div className="card-container">
+                        <GrahamCard />
+                    </div>
+                <ArrowForwardIosOutlined /> 
+            </div>
         </div>
     )
 }

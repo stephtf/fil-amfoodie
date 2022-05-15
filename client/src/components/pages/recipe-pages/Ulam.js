@@ -1,9 +1,17 @@
+import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 import ChickenAdoboCard from "./recipe-cards/ChickenAdobo-card";
 
 const Ulam = () => {
     return (
-        <div className='body-container recipes-space'>
+        <div className='content-container'>
+            <div className='recipes-wrapper'>
+            <ArrowBackIosOutlined /> 
+            <div className="card-container">
             <ChickenAdoboCard /> 
+            </div>
+            
+            <ArrowForwardIosOutlined /> 
+            </div>
         </div>
     )
 }

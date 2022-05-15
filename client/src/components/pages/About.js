@@ -9,7 +9,9 @@ const About = () => {
         <div>
             <Header />
             <div className='about-us body-container'>
-                <h2 className='text-center recipe-titles'>About</h2>
+                <div className='content-container'>
+                <div className='content-wrapper'>
+                <h2 className='text-center recipe-titles space-below-25'>About</h2>
                 <section className=''>
                     <img className='about-image' src='/taho.jpg' alt='Gian and Steph drinking strawberry taho in Baguio'/>
                     <p className='about-paras'>Hi! We're Steph and Gian and We are two Fil-Ams who love food! We wanted to create this blog to share our passion for cooking Filipino and American food, and putting our own twists on classic recipes. </p> 
@@ -32,7 +34,7 @@ const About = () => {
                 </section>
 
                 <section>
-                 <h2 className='text-center  recipe-titles'>Contact Us</h2>
+                 <h2 className='text-center  recipe-titles space-below-25'>Contact Us</h2>
                  <img className='about-image' src={bananaboat} alt='Gian and Steph drinking strawberry taho in Baguio'/>
                 <p className='about-paras space-below-25'>We hope our blog inspires you and that you enjoy what we have created! If you've tried our recipes, let us know how it tasted :)  </p>
                 <form className='form-group' action="https://formsubmit.co/hellostephf@gmail.com" method="POST" >
@@ -48,9 +50,12 @@ const About = () => {
                 </form>
                 </section>
             </div>
+            </div>  
+        </div>
             <Footer />
             <script src='https://smtpjs.com/v3/smtp.js'></script>
-        </div>  
+      
+        </div>
     )
 }
 
