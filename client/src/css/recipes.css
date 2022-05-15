@@ -286,12 +286,17 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .card-container {
     display: flex; 
-    flex-direction: row;
-    overflow: hidden;
+    width: max-content;
+    overflow-x:auto;
+    position: relative;
+    transform: translateX(0px);
+    transition: all 1s ease;
+    object-fit: contain;
 }
 
 
@@ -326,6 +331,7 @@ button:hover {
         padding-bottom: 25px;
         padding-right: 0px;
         padding-left: 0px;
+        position: relative;
         /* display: flex;
         justify-content: space-evenly; */
     }
@@ -338,6 +344,7 @@ button:hover {
     
     .MuiSvgIcon-root:hover {
         opacity: 100%;
+        cursor: pointer;
     }
 
     /* container for the recipe cards */
@@ -348,7 +355,7 @@ button:hover {
         margin-top: 15px;
         margin-bottom: 15px;
         margin-right: 15px;
-        margin-left: 0px;
+        margin-left: 2px;
     }
     
     .card-image {
