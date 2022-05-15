@@ -5,18 +5,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   --pinoy-blue: #1B4079; 
   --pinoy-red: #B75F59;
   --pinoy-yellow: #F2A22C;
   --navbar-kulay: #f9f1e6; 
 }
-
 html {
   height: 100%;
 }
-
 body {
   line-height: 1;
   margin: 0%;
@@ -32,28 +29,23 @@ body {
 .body-container {
   margin: 5px 20px;
 }
-
 input, select, option, optgroup, textarea, button,
 pre, code {
   font-size: 100%;
   font-family: inherit;
 }
-
 ul {
   list-style: none;
 }
-
 a {
   text-decoration: none;
 }
-
 h1 {
   font-family: "Sacramento";
   color: var(--pinoy-blue);
   font-size: 50px;
   margin: 0;
 }
-
 h2 {
   font-family: "Sacramento";
   color: var(--pinoy-blue);
@@ -64,27 +56,21 @@ h2 {
 .space-below-10 {
   margin-bottom: 10px;
 }
-
 .space-below-25 {
   margin-bottom: 25px;
 }
-
 .space-below-75 {
   margin-bottom: 75px;
 }
-
 .space-above-25 {
   margin-top: 25px;
 }
-
 .space-above-75 {
   margin-top: 75px;
 }
-
 .center-text {
   text-align: center;
 }
-
 h3 {
   font-family: "Montserrat";
   color: var(--pinoy-red);
@@ -102,7 +88,6 @@ h4 {
   border-bottom-style: solid;
   border-bottom-width: 2.5px;
 }
-
 p {
   margin-top: 15px;
   font-size: 17px;
@@ -112,7 +97,6 @@ p {
 .text-center {
   text-align: center;
 }
-
 .content-container {
   display: flex;
   justify-content: center;
@@ -121,12 +105,6 @@ p {
 @media screen and (min-width: 800px) {
   .body-container {
     margin: 25px 10px;
-    /* margin-top: 25px;
-    margin-right: 0px;
-    margin-left: 0px; */
-    /* display: flex;
-    justify-content: center; */
-    /* flex-direction: column; */
   }
   .recipes-wrapper {
     max-width: 930px;

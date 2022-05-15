@@ -2,26 +2,22 @@
     padding-top: 20px;
     text-align: center;
 }
-
 .hero-image {
     width: 100%;
     height: 400px;
     object-fit: cover; 
     padding: 0px 10px;
 }
-
 .favorites-space {
-    padding-left: 10px;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 15px;
     background-color: #f9f1e6;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-
 
 @media screen and (min-width: 800px) {
     .favorites-space {
@@ -33,7 +29,6 @@
         padding-top: 22px;
         padding-bottom: 20px;
     }
-
     .hero-image {
         width: 100%;
         height: 400px;
