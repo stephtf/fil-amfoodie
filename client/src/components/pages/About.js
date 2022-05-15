@@ -35,7 +35,7 @@ const About = () => {
 
                 <section>
                  <h2 className='text-center  recipe-titles space-below-25'>Contact Us</h2>
-                 <img className='about-image' src={bananaboat} alt='Gian and Steph drinking strawberry taho in Baguio'/>
+                 <img className='about-image' src={bananaboat} alt='Gian and Steph island hopping in Cebu'/>
                 <p className='about-paras space-below-25'>We hope our blog inspires you and that you enjoy what we have created! If you've tried our recipes, let us know how it tasted :)  </p>
                 <form className='form-group' action="https://formsubmit.co/hellostephf@gmail.com" method="POST" >
                     <h3 className='space-below-10'>SEND US A MESSAGE</h3>

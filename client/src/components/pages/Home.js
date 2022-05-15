@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Header />
-            <img src={buyingtaho} className='hero-image space-below-25' alt='Steph and Gian buy taho in Baguio'/>
+            < src={buyingtaho} className='hero-image space-below-25' alt='Steph and Gian buy taho in Baguio'/>
             <div className='body-container'>
                 <div className='content-container'>
                 <div className='content-wrapper'>

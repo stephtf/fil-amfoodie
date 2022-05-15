@@ -185,7 +185,7 @@ const Graham = () => {
         <img
           src={graham}
           className="main-image space-below-25"
-          alt="a pot of chicken adobo"
+          alt="Graham cake with fruit on top"
         />
 
         <div className="ingredients-container space-below-75">

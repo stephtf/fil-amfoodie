@@ -185,7 +185,7 @@ const LumpiangShanghai = () => {
         <img
           className="main-image space-below-25"
         //   src={photonamegoeshere}
-          alt="lumpia in a paper bowl"
+          alt="alt text goes here"
         />
 
         <div className="ingredients-container space-below-75">

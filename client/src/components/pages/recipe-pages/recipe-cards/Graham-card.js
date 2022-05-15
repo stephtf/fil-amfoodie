@@ -8,7 +8,7 @@ const GrahamCard = () => {
             <Link to='/recipes/graham'>
             <div className='recipe-cards-container space-below-25'>
                 <div className='space-below-10 card-title'>Graham Cake</div>
-                <img src={graham} className='card-image' alt='a pot of adobo'/>
+                <img src={graham} className='card-image' alt='Graham cake with some fruit on top'/>
                 <button>View Recipe</button>
             </div>
             </Link>

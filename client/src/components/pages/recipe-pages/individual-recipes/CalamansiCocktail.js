@@ -181,7 +181,7 @@ const CalamansiCocktail = () => {
       <h3 className='center-text'>AKA "Madaling Malasing" (Gets you drunk)</h3>
       <img src={calamansi}
         className="main-image space-below-25" 
-        alt="a pot of chicken adobo"
+        alt="two Calamansi cocktail drinks"
       />
 
       <div className="ingredients-container space-below-75">
