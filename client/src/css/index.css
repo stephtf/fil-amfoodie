@@ -129,7 +129,8 @@ p {
     /* flex-direction: column; */
   }
   .recipes-wrapper {
-    max-width: 950px;
+    max-width: 930px;
+    overflow: hidden;
   }
   .content-wrapper {
     max-width: 950px;
