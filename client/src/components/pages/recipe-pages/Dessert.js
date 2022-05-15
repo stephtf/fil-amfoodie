@@ -1,15 +1,39 @@
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 import GrahamCard from "./recipe-cards/Graham-card";
+import { useEffect, useRef, useState } from 'react';
 
 const Dessert = () => {
+    const listRef = useRef();
+    const [slideNumber, setSlideNumber] = useState(0);
+    const handleArrowClickLeft = () => setSlideNumber(Math.max(0,slideNumber - 1));
+    const handleArrowClickRight = () => setSlideNumber(slideNumber + 1);
+    
+    useEffect(() => {
+        let distance = listRef.current.getBoundingClientRect().width;
+        let N = listRef.current.childNodes.length;
+        console.log(slideNumber);
+
+        if (slideNumber >= N) {
+            setSlideNumber(0);
+        } 
+        if(slideNumber > 0 && slideNumber < N) {
+            listRef.current.style.transform = `translateX(${(-slideNumber*distance/N)+distance/N}px)`;
+        }
+        if(slideNumber < N) {
+            listRef.current.style.transform = `translateX(${-slideNumber*distance/N}px)`;
+        }
+    }, [slideNumber]);
+
     return (
         <div className='content-container'>
+            <div className='arrow-container'>
+            <ArrowBackIosOutlined onClick={handleArrowClickLeft} /> 
             <div className='recipes-wrapper'>
-                <ArrowBackIosOutlined /> 
-                    <div className="card-container">
-                        <GrahamCard />
-                    </div>
-                <ArrowForwardIosOutlined /> 
+            <div className="card-container" ref={listRef}>
+                <GrahamCard />
+            </div>
+            </div>
+            <ArrowForwardIosOutlined onClick={handleArrowClickRight}/> 
             </div>
         </div>
     )
