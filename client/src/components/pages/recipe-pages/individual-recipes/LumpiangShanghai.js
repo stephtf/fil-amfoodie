@@ -178,6 +178,8 @@ const LumpiangShanghai = () => {
     <div>
       <Header />
       <div className="body-container">
+      <div className='content-container'>
+          <div className='content-wrapper'>
         <h2 className="space-below-10 recipe-titles">{recipeName}</h2>
         <h3 className="center-text">Fried and yummy</h3>
         <img
@@ -406,6 +408,8 @@ const LumpiangShanghai = () => {
         <h2 className="text-center space-above-75 space-below-25">
           Check out these other appetizers!
         </h2>
+        </div>
+        </div>
         <div className="space-above-10">
           <Appetizers />
         </div>
