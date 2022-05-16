@@ -11,7 +11,6 @@ const Appetizers = () => {
     useEffect(() => {
         let distance = listRef.current.getBoundingClientRect().width;
         let N = listRef.current.childNodes.length;
-        console.log(slideNumber);
 
         if (slideNumber >= N) {
             setSlideNumber(0);
@@ -24,7 +23,6 @@ const Appetizers = () => {
         }
     }, [slideNumber]);
     
-   
     return (
         <div className='content-container'>
             <div className='arrow-container'>

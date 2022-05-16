@@ -11,7 +11,6 @@ const Dessert = () => {
     useEffect(() => {
         let distance = listRef.current.getBoundingClientRect().width;
         let N = listRef.current.childNodes.length;
-        console.log(slideNumber);
 
         if (slideNumber >= N) {
             setSlideNumber(0);
