@@ -3,6 +3,9 @@
 ## Description 
 Fil-Am Foodie is a recipe blog featuring Filipino and American dishes. Users can view recipes by category and leave comments and replies on each recipe page. 
 
+## Screenshot 
+![Screenshot of website filamfoodie.com home page](client/public/foodblog.png)
+
 ## Technologies 
 * MongoDB
 * Mongoose 
